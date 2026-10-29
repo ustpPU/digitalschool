@@ -66,3 +66,11 @@ export function schoolHistory(snapshots,code) {
     .map(s=>({id:s.id,period:s.period,school:s.schools.find(x=>x.code===code)}))
     .sort((a,b)=>a.period.end.localeCompare(b.period.end)||a.period.start.localeCompare(b.period.start));
 }
+
+// Whole selected district snapshot; independent of explorer filters and sorting.
+export function districtRank(schools, code, key) {
+  const school=schools.find(s=>s.code===code),rate=metric(school,key)?.rate;
+  if(rate==null)return null;
+  const rates=schools.map(s=>metric(s,key)?.rate).filter(r=>r!=null);
+  return {position:1+rates.filter(r=>r>rate).length,total:rates.length,tied:rates.filter(r=>r===rate).length>1};
+}

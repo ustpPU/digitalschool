@@ -52,6 +52,13 @@ Explorer memindahkan header dan nilai ukuran dipilih ke lajur pertama selepas se
 
 ## Pengesahan
 
-23 ujian meliputi jumlah kawalan XLSX, padanan 85 kod, statistik sumber tidak berubah, kategori/pengesahan pemilik, carian, susunan, seri, nilai kosong, beza mata peratus, sejarah bertindih, agregat kategori, pasangan peta, julat AI dan pemisahan aplikasi Selangor.
+25 ujian meliputi jumlah kawalan XLSX, padanan 85 kod, statistik sumber tidak berubah, kategori/pengesahan pemilik, carian, susunan, seri, nilai kosong, beza mata peratus, sejarah bertindih, agregat kategori, pasangan peta, julat AI dan pemisahan aplikasi Selangor.
 
 Semakan pelayar desktop/telefon meliputi carian, kategori, lajur bergerak, profil, AI, perbandingan, peta dan lebar 390px. Binaan produksi mesti lulus sebelum deploy.
+
+
+## Kedudukan profil & cetakan
+
+Profil Murid dan Guru menunjukkan kedudukan daripada semua sekolah daerah dalam snapshot dipilih, bebas daripada penapis Explorer. Kadar penuh menentukan ranking; seri berkongsi kedudukan dengan nombor seterusnya dilangkau, dan kadar tidak sah dikecualikan. `districtRank` diuji untuk semua 85 sekolah serta rekod seri/kosong.
+
+Butang **Cetak / Simpan PDF** membuka cetakan pelayar. Pilih **Save as PDF / Simpan sebagai PDF** untuk fail digital. Templat A4 khusus memaparkan nama/kod sekolah, tempoh, kadar, ranking, kiraan, kadar daerah dan kaedah, bersama Jata Negara, header PU Insight dan footer USTP PPD Petaling Utama. Laporan sentiasa menggunakan snapshot semasa, termasuk apabila tab sejarah dibuka; navigasi/panel lain tidak dicetak. Untuk cetakan tanpa URL/tarikh tambahan pelayar, nyahpilih Headers and footers dalam tetapan cetakan.
