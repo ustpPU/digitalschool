@@ -1,0 +1,2655 @@
+{
+  "id": "2026-10-01_2026-10-20",
+  "period": {
+    "start": "2026-10-01",
+    "end": "2026-10-20",
+    "label": "1–20 Oktober 2026",
+    "basis": "Filename; no date columns in workbook"
+  },
+  "district": "PETALING UTAMA",
+  "source": "Pengguna_Aktif_Murid_dan_Guru_Selangor_1_Oktober_20_Oktober_2026.xlsx",
+  "summary": {
+    "students": {
+      "active": 14769,
+      "total": 73494,
+      "rate": 0.2009551800146951,
+      "schools": 85
+    },
+    "teachers": {
+      "active": 2287,
+      "total": 4946,
+      "rate": 0.46239385361908614,
+      "schools": 85
+    },
+    "ai": {
+      "active": 2287,
+      "total": 4946,
+      "rate": 0.46239385361908614,
+      "schools": 85
+    }
+  },
+  "schools": [
+    {
+      "code": "BBA8101",
+      "name": "SEKOLAH KEBANGSAAN TAMAN DATO HARUN (2)",
+      "type": "SK",
+      "students": {
+        "active": 294,
+        "total": 1157,
+        "rate": 0.2541054451166811,
+        "sourceRate": 0.2541,
+        "sheet": "Murid",
+        "row": 358
+      },
+      "teachers": {
+        "active": 43,
+        "total": 65,
+        "rate": 0.6615384615384615,
+        "sourceRate": 0.6615,
+        "sheet": "Guru",
+        "row": 322
+      },
+      "ai": {
+        "active": 43,
+        "total": 65,
+        "rate": 0.6615384615384615,
+        "sourceRate": 0.6615,
+        "sheet": "AI Tools (Guru)",
+        "row": 322
+      }
+    },
+    {
+      "code": "BBA8102",
+      "name": "SEKOLAH KEBANGSAAN KELANA JAYA (2)",
+      "type": "SK",
+      "students": {
+        "active": 113,
+        "total": 281,
+        "rate": 0.40213523131672596,
+        "sourceRate": 0.4021,
+        "sheet": "Murid",
+        "row": 177
+      },
+      "teachers": {
+        "active": 10,
+        "total": 19,
+        "rate": 0.5263157894736842,
+        "sourceRate": 0.5263,
+        "sheet": "Guru",
+        "row": 505
+      },
+      "ai": {
+        "active": 10,
+        "total": 19,
+        "rate": 0.5263157894736842,
+        "sourceRate": 0.5263,
+        "sheet": "AI Tools (Guru)",
+        "row": 505
+      }
+    },
+    {
+      "code": "BBA8103",
+      "name": "SEKOLAH KEBANGSAAN DAMANSARA JAYA (2)",
+      "type": "SK",
+      "students": {
+        "active": 32,
+        "total": 124,
+        "rate": 0.25806451612903225,
+        "sourceRate": 0.2581,
+        "sheet": "Murid",
+        "row": 352
+      },
+      "teachers": {
+        "active": 7,
+        "total": 17,
+        "rate": 0.4117647058823529,
+        "sourceRate": 0.4118,
+        "sheet": "Guru",
+        "row": 648
+      },
+      "ai": {
+        "active": 7,
+        "total": 17,
+        "rate": 0.4117647058823529,
+        "sourceRate": 0.4118,
+        "sheet": "AI Tools (Guru)",
+        "row": 648
+      }
+    },
+    {
+      "code": "BBA8106",
+      "name": "SEKOLAH KEBANGSAAN TAMAN MEGAH",
+      "type": "SK",
+      "students": {
+        "active": 241,
+        "total": 931,
+        "rate": 0.2588614393125671,
+        "sourceRate": 0.2589,
+        "sheet": "Murid",
+        "row": 349
+      },
+      "teachers": {
+        "active": 26,
+        "total": 54,
+        "rate": 0.48148148148148145,
+        "sourceRate": 0.4815,
+        "sheet": "Guru",
+        "row": 567
+      },
+      "ai": {
+        "active": 26,
+        "total": 54,
+        "rate": 0.48148148148148145,
+        "sourceRate": 0.4815,
+        "sheet": "AI Tools (Guru)",
+        "row": 567
+      }
+    },
+    {
+      "code": "BBA8201",
+      "name": "SEKOLAH KEBANGSAAN PETALING JAYA",
+      "type": "SK",
+      "students": {
+        "active": 81,
+        "total": 632,
+        "rate": 0.1281645569620253,
+        "sourceRate": 0.1282,
+        "sheet": "Murid",
+        "row": 571
+      },
+      "teachers": {
+        "active": 19,
+        "total": 42,
+        "rate": 0.4523809523809524,
+        "sourceRate": 0.4524,
+        "sheet": "Guru",
+        "row": 599
+      },
+      "ai": {
+        "active": 19,
+        "total": 42,
+        "rate": 0.4523809523809524,
+        "sourceRate": 0.4524,
+        "sheet": "AI Tools (Guru)",
+        "row": 599
+      }
+    },
+    {
+      "code": "BBA8206",
+      "name": "SEKOLAH KEBANGSAAN BUKIT LANJAN",
+      "type": "SK",
+      "students": {
+        "active": 1,
+        "total": 223,
+        "rate": 0.004484304932735426,
+        "sourceRate": 0.0045,
+        "sheet": "Murid",
+        "row": 943
+      },
+      "teachers": {
+        "active": 15,
+        "total": 20,
+        "rate": 0.75,
+        "sourceRate": 0.75,
+        "sheet": "Guru",
+        "row": 212
+      },
+      "ai": {
+        "active": 15,
+        "total": 20,
+        "rate": 0.75,
+        "sourceRate": 0.75,
+        "sheet": "AI Tools (Guru)",
+        "row": 212
+      }
+    },
+    {
+      "code": "BBA8208",
+      "name": "SEKOLAH KEBANGSAAN DAMANSARA UTAMA",
+      "type": "SK",
+      "students": {
+        "active": 90,
+        "total": 559,
+        "rate": 0.16100178890876565,
+        "sourceRate": 0.161,
+        "sheet": "Murid",
+        "row": 505
+      },
+      "teachers": {
+        "active": 22,
+        "total": 39,
+        "rate": 0.5641025641025641,
+        "sourceRate": 0.5641,
+        "sheet": "Guru",
+        "row": 449
+      },
+      "ai": {
+        "active": 22,
+        "total": 39,
+        "rate": 0.5641025641025641,
+        "sourceRate": 0.5641,
+        "sheet": "AI Tools (Guru)",
+        "row": 449
+      }
+    },
+    {
+      "code": "BBA8209",
+      "name": "SEKOLAH KEBANGSAAN SRI DAMAI",
+      "type": "SK",
+      "students": {
+        "active": 10,
+        "total": 230,
+        "rate": 0.043478260869565216,
+        "sourceRate": 0.0435,
+        "sheet": "Murid",
+        "row": 831
+      },
+      "teachers": {
+        "active": 13,
+        "total": 26,
+        "rate": 0.5,
+        "sourceRate": 0.5,
+        "sheet": "Guru",
+        "row": 535
+      },
+      "ai": {
+        "active": 13,
+        "total": 26,
+        "rate": 0.5,
+        "sourceRate": 0.5,
+        "sheet": "AI Tools (Guru)",
+        "row": 535
+      }
+    },
+    {
+      "code": "BBA8210",
+      "name": "SEKOLAH KEBANGSAAN TAMAN DATO' HARUN (SATU)",
+      "type": "SK",
+      "students": {
+        "active": 171,
+        "total": 925,
+        "rate": 0.18486486486486486,
+        "sourceRate": 0.1849,
+        "sheet": "Murid",
+        "row": 466
+      },
+      "teachers": {
+        "active": 18,
+        "total": 55,
+        "rate": 0.32727272727272727,
+        "sourceRate": 0.3273,
+        "sheet": "Guru",
+        "row": 768
+      },
+      "ai": {
+        "active": 18,
+        "total": 55,
+        "rate": 0.32727272727272727,
+        "sourceRate": 0.3273,
+        "sheet": "AI Tools (Guru)",
+        "row": 768
+      }
+    },
+    {
+      "code": "BBA8211",
+      "name": "SEKOLAH KEBANGSAAN KELANA JAYA (1)",
+      "type": "SK",
+      "students": {
+        "active": 268,
+        "total": 715,
+        "rate": 0.3748251748251748,
+        "sourceRate": 0.3748,
+        "sheet": "Murid",
+        "row": 208
+      },
+      "teachers": {
+        "active": 26,
+        "total": 43,
+        "rate": 0.6046511627906976,
+        "sourceRate": 0.6047,
+        "sheet": "Guru",
+        "row": 396
+      },
+      "ai": {
+        "active": 26,
+        "total": 43,
+        "rate": 0.6046511627906976,
+        "sourceRate": 0.6047,
+        "sheet": "AI Tools (Guru)",
+        "row": 396
+      }
+    },
+    {
+      "code": "BBA8214",
+      "name": "SEKOLAH KEBANGSAAN TAMAN SEA",
+      "type": "SK",
+      "students": {
+        "active": 44,
+        "total": 256,
+        "rate": 0.171875,
+        "sourceRate": 0.1719,
+        "sheet": "Murid",
+        "row": 488
+      },
+      "teachers": {
+        "active": 12,
+        "total": 23,
+        "rate": 0.5217391304347826,
+        "sourceRate": 0.5217,
+        "sheet": "Guru",
+        "row": 510
+      },
+      "ai": {
+        "active": 12,
+        "total": 23,
+        "rate": 0.5217391304347826,
+        "sourceRate": 0.5217,
+        "sheet": "AI Tools (Guru)",
+        "row": 510
+      }
+    },
+    {
+      "code": "BBA8215",
+      "name": "SEKOLAH KEBANGSAAN DAMANSARA JAYA (1)",
+      "type": "SK",
+      "students": {
+        "active": 37,
+        "total": 260,
+        "rate": 0.1423076923076923,
+        "sourceRate": 0.1423,
+        "sheet": "Murid",
+        "row": 544
+      },
+      "teachers": {
+        "active": 24,
+        "total": 30,
+        "rate": 0.8,
+        "sourceRate": 0.8,
+        "sheet": "Guru",
+        "row": 144
+      },
+      "ai": {
+        "active": 24,
+        "total": 30,
+        "rate": 0.8,
+        "sourceRate": 0.8,
+        "sheet": "AI Tools (Guru)",
+        "row": 144
+      }
+    },
+    {
+      "code": "BBA8220",
+      "name": "SEKOLAH KEBANGSAAN TAMAN MEDAN",
+      "type": "SK",
+      "students": {
+        "active": 733,
+        "total": 2182,
+        "rate": 0.33593033913840514,
+        "sourceRate": 0.3359,
+        "sheet": "Murid",
+        "row": 252
+      },
+      "teachers": {
+        "active": 56,
+        "total": 127,
+        "rate": 0.4409448818897638,
+        "sourceRate": 0.4409,
+        "sheet": "Guru",
+        "row": 608
+      },
+      "ai": {
+        "active": 56,
+        "total": 127,
+        "rate": 0.4409448818897638,
+        "sourceRate": 0.4409,
+        "sheet": "AI Tools (Guru)",
+        "row": 608
+      }
+    },
+    {
+      "code": "BBA8221",
+      "name": "SEKOLAH KEBANGSAAN SRI KELANA",
+      "type": "SK",
+      "students": {
+        "active": 138,
+        "total": 866,
+        "rate": 0.15935334872979215,
+        "sourceRate": 0.1594,
+        "sheet": "Murid",
+        "row": 508
+      },
+      "teachers": {
+        "active": 36,
+        "total": 65,
+        "rate": 0.5538461538461539,
+        "sourceRate": 0.5538,
+        "sheet": "Guru",
+        "row": 463
+      },
+      "ai": {
+        "active": 36,
+        "total": 65,
+        "rate": 0.5538461538461539,
+        "sourceRate": 0.5538,
+        "sheet": "AI Tools (Guru)",
+        "row": 463
+      }
+    },
+    {
+      "code": "BBA8236",
+      "name": "SEKOLAH KEBANGSAAN SEKSYEN 7 KOTA DAMANSARA",
+      "type": "SK",
+      "students": {
+        "active": 98,
+        "total": 1060,
+        "rate": 0.09245283018867924,
+        "sourceRate": 0.0925,
+        "sheet": "Murid",
+        "row": 661
+      },
+      "teachers": {
+        "active": 21,
+        "total": 69,
+        "rate": 0.30434782608695654,
+        "sourceRate": 0.3043,
+        "sheet": "Guru",
+        "row": 804
+      },
+      "ai": {
+        "active": 21,
+        "total": 69,
+        "rate": 0.30434782608695654,
+        "sourceRate": 0.3043,
+        "sheet": "AI Tools (Guru)",
+        "row": 804
+      }
+    },
+    {
+      "code": "BBA8241",
+      "name": "SEKOLAH KEBANGSAAN BANDAR BARU SRI DAMANSARA",
+      "type": "SK",
+      "students": {
+        "active": 13,
+        "total": 488,
+        "rate": 0.02663934426229508,
+        "sourceRate": 0.0266,
+        "sheet": "Murid",
+        "row": 874
+      },
+      "teachers": {
+        "active": 13,
+        "total": 35,
+        "rate": 0.37142857142857144,
+        "sourceRate": 0.3714,
+        "sheet": "Guru",
+        "row": 703
+      },
+      "ai": {
+        "active": 13,
+        "total": 35,
+        "rate": 0.37142857142857144,
+        "sourceRate": 0.3714,
+        "sheet": "AI Tools (Guru)",
+        "row": 703
+      }
+    },
+    {
+      "code": "BBA8244",
+      "name": "SEKOLAH KEBANGSAAN BANDAR UTAMA DAMANSARA",
+      "type": "SK",
+      "students": {
+        "active": 39,
+        "total": 202,
+        "rate": 0.19306930693069307,
+        "sourceRate": 0.1931,
+        "sheet": "Murid",
+        "row": 453
+      },
+      "teachers": {
+        "active": 8,
+        "total": 21,
+        "rate": 0.38095238095238093,
+        "sourceRate": 0.381,
+        "sheet": "Guru",
+        "row": 688
+      },
+      "ai": {
+        "active": 8,
+        "total": 21,
+        "rate": 0.38095238095238093,
+        "sourceRate": 0.381,
+        "sheet": "AI Tools (Guru)",
+        "row": 688
+      }
+    },
+    {
+      "code": "BBA8248",
+      "name": "SEKOLAH KEBANGSAAN BANDAR UTAMA DAMANSARA 2",
+      "type": "SK",
+      "students": {
+        "active": 49,
+        "total": 433,
+        "rate": 0.11316397228637413,
+        "sourceRate": 0.1132,
+        "sheet": "Murid",
+        "row": 602
+      },
+      "teachers": {
+        "active": 15,
+        "total": 32,
+        "rate": 0.46875,
+        "sourceRate": 0.4688,
+        "sheet": "Guru",
+        "row": 579
+      },
+      "ai": {
+        "active": 15,
+        "total": 32,
+        "rate": 0.46875,
+        "sourceRate": 0.4688,
+        "sheet": "AI Tools (Guru)",
+        "row": 579
+      }
+    },
+    {
+      "code": "BBA8250",
+      "name": "SEKOLAH KEBANGSAAN SEKSYEN 6 KOTA DAMANSARA",
+      "type": "SK",
+      "students": {
+        "active": 299,
+        "total": 1450,
+        "rate": 0.20620689655172414,
+        "sourceRate": 0.2062,
+        "sheet": "Murid",
+        "row": 433
+      },
+      "teachers": {
+        "active": 26,
+        "total": 89,
+        "rate": 0.29213483146067415,
+        "sourceRate": 0.2921,
+        "sheet": "Guru",
+        "row": 818
+      },
+      "ai": {
+        "active": 26,
+        "total": 89,
+        "rate": 0.29213483146067415,
+        "sourceRate": 0.2921,
+        "sheet": "AI Tools (Guru)",
+        "row": 818
+      }
+    },
+    {
+      "code": "BBA8253",
+      "name": "SEKOLAH KEBANGSAAN BANDAR BARU SRI DAMANSARA 2",
+      "type": "SK",
+      "students": {
+        "active": 119,
+        "total": 519,
+        "rate": 0.22928709055876687,
+        "sourceRate": 0.2293,
+        "sheet": "Murid",
+        "row": 394
+      },
+      "teachers": {
+        "active": 26,
+        "total": 39,
+        "rate": 0.6666666666666666,
+        "sourceRate": 0.6667,
+        "sheet": "Guru",
+        "row": 308
+      },
+      "ai": {
+        "active": 26,
+        "total": 39,
+        "rate": 0.6666666666666666,
+        "sourceRate": 0.6667,
+        "sheet": "AI Tools (Guru)",
+        "row": 308
+      }
+    },
+    {
+      "code": "BBA8259",
+      "name": "SEKOLAH KEBANGSAAN BANDAR SRI DAMANSARA 3",
+      "type": "SK",
+      "students": {
+        "active": 176,
+        "total": 546,
+        "rate": 0.32234432234432236,
+        "sourceRate": 0.3223,
+        "sheet": "Murid",
+        "row": 263
+      },
+      "teachers": {
+        "active": 13,
+        "total": 40,
+        "rate": 0.325,
+        "sourceRate": 0.325,
+        "sheet": "Guru",
+        "row": 775
+      },
+      "ai": {
+        "active": 13,
+        "total": 40,
+        "rate": 0.325,
+        "sourceRate": 0.325,
+        "sheet": "AI Tools (Guru)",
+        "row": 775
+      }
+    },
+    {
+      "code": "BBA8260",
+      "name": "SEKOLAH KEBANGSAAN BANDAR UTAMA DAMANSARA (4)",
+      "type": "SK",
+      "students": {
+        "active": 72,
+        "total": 899,
+        "rate": 0.08008898776418243,
+        "sourceRate": 0.0801,
+        "sheet": "Murid",
+        "row": 693
+      },
+      "teachers": {
+        "active": 15,
+        "total": 53,
+        "rate": 0.2830188679245283,
+        "sourceRate": 0.283,
+        "sheet": "Guru",
+        "row": 836
+      },
+      "ai": {
+        "active": 15,
+        "total": 53,
+        "rate": 0.2830188679245283,
+        "sourceRate": 0.283,
+        "sheet": "AI Tools (Guru)",
+        "row": 836
+      }
+    },
+    {
+      "code": "BBA8263",
+      "name": "SEKOLAH KEBANGSAAN TROPICANA",
+      "type": "SK",
+      "students": {
+        "active": 127,
+        "total": 654,
+        "rate": 0.19418960244648317,
+        "sourceRate": 0.1942,
+        "sheet": "Murid",
+        "row": 451
+      },
+      "teachers": {
+        "active": 19,
+        "total": 42,
+        "rate": 0.4523809523809524,
+        "sourceRate": 0.4524,
+        "sheet": "Guru",
+        "row": 598
+      },
+      "ai": {
+        "active": 19,
+        "total": 42,
+        "rate": 0.4523809523809524,
+        "sourceRate": 0.4524,
+        "sheet": "AI Tools (Guru)",
+        "row": 598
+      }
+    },
+    {
+      "code": "BBA8265",
+      "name": "SEKOLAH KEBANGSAAN BANDAR SRI DAMANSARA 1",
+      "type": "SK",
+      "students": {
+        "active": 409,
+        "total": 1018,
+        "rate": 0.4017681728880157,
+        "sourceRate": 0.4018,
+        "sheet": "Murid",
+        "row": 179
+      },
+      "teachers": {
+        "active": 28,
+        "total": 65,
+        "rate": 0.4307692307692308,
+        "sourceRate": 0.4308,
+        "sheet": "Guru",
+        "row": 620
+      },
+      "ai": {
+        "active": 28,
+        "total": 65,
+        "rate": 0.4307692307692308,
+        "sourceRate": 0.4308,
+        "sheet": "AI Tools (Guru)",
+        "row": 620
+      }
+    },
+    {
+      "code": "BBA8270",
+      "name": "SEKOLAH KEBANGSAAN SEKSYEN 9 KOTA DAMANSARA",
+      "type": "SK",
+      "students": {
+        "active": 178,
+        "total": 925,
+        "rate": 0.19243243243243244,
+        "sourceRate": 0.1924,
+        "sheet": "Murid",
+        "row": 455
+      },
+      "teachers": {
+        "active": 13,
+        "total": 54,
+        "rate": 0.24074074074074073,
+        "sourceRate": 0.2407,
+        "sheet": "Guru",
+        "row": 895
+      },
+      "ai": {
+        "active": 13,
+        "total": 54,
+        "rate": 0.24074074074074073,
+        "sourceRate": 0.2407,
+        "sheet": "AI Tools (Guru)",
+        "row": 895
+      }
+    },
+    {
+      "code": "BBA8271",
+      "name": "SEKOLAH KEBANGSAAN DAMANSARA DAMAI 1",
+      "type": "SK",
+      "students": {
+        "active": 540,
+        "total": 1614,
+        "rate": 0.3345724907063197,
+        "sourceRate": 0.3346,
+        "sheet": "Murid",
+        "row": 253
+      },
+      "teachers": {
+        "active": 64,
+        "total": 96,
+        "rate": 0.6666666666666666,
+        "sourceRate": 0.6667,
+        "sheet": "Guru",
+        "row": 310
+      },
+      "ai": {
+        "active": 64,
+        "total": 96,
+        "rate": 0.6666666666666666,
+        "sourceRate": 0.6667,
+        "sheet": "AI Tools (Guru)",
+        "row": 310
+      }
+    },
+    {
+      "code": "BBA8276",
+      "name": "SEKOLAH KEBANGSAAN LEMBAH SUBANG",
+      "type": "SK",
+      "students": {
+        "active": 135,
+        "total": 1233,
+        "rate": 0.10948905109489052,
+        "sourceRate": 0.1095,
+        "sheet": "Murid",
+        "row": 616
+      },
+      "teachers": {
+        "active": 26,
+        "total": 70,
+        "rate": 0.37142857142857144,
+        "sourceRate": 0.3714,
+        "sheet": "Guru",
+        "row": 702
+      },
+      "ai": {
+        "active": 26,
+        "total": 70,
+        "rate": 0.37142857142857144,
+        "sourceRate": 0.3714,
+        "sheet": "AI Tools (Guru)",
+        "row": 702
+      }
+    },
+    {
+      "code": "BBA8277",
+      "name": "SEKOLAH KEBANGSAAN SEKSYEN 11 KOTA DAMANSARA",
+      "type": "SK",
+      "students": {
+        "active": 30,
+        "total": 902,
+        "rate": 0.03325942350332594,
+        "sourceRate": 0.0333,
+        "sheet": "Murid",
+        "row": 860
+      },
+      "teachers": {
+        "active": 21,
+        "total": 65,
+        "rate": 0.3230769230769231,
+        "sourceRate": 0.3231,
+        "sheet": "Guru",
+        "row": 781
+      },
+      "ai": {
+        "active": 21,
+        "total": 65,
+        "rate": 0.3230769230769231,
+        "sourceRate": 0.3231,
+        "sheet": "AI Tools (Guru)",
+        "row": 781
+      }
+    },
+    {
+      "code": "BBA8285",
+      "name": "SEKOLAH KEBANGSAAN DAMANSARA DAMAI 2",
+      "type": "SK",
+      "students": {
+        "active": 213,
+        "total": 1648,
+        "rate": 0.12924757281553398,
+        "sourceRate": 0.1292,
+        "sheet": "Murid",
+        "row": 570
+      },
+      "teachers": {
+        "active": 32,
+        "total": 98,
+        "rate": 0.32653061224489793,
+        "sourceRate": 0.3265,
+        "sheet": "Guru",
+        "row": 771
+      },
+      "ai": {
+        "active": 32,
+        "total": 98,
+        "rate": 0.32653061224489793,
+        "sourceRate": 0.3265,
+        "sheet": "AI Tools (Guru)",
+        "row": 771
+      }
+    },
+    {
+      "code": "BBB8302",
+      "name": "SEKOLAH KEBANGSAAN ASSUNTA (2)",
+      "type": "SK",
+      "students": {
+        "active": 413,
+        "total": 965,
+        "rate": 0.42797927461139895,
+        "sourceRate": 0.428,
+        "sheet": "Murid",
+        "row": 146
+      },
+      "teachers": {
+        "active": 35,
+        "total": 68,
+        "rate": 0.5147058823529411,
+        "sourceRate": 0.5147,
+        "sheet": "Guru",
+        "row": 520
+      },
+      "ai": {
+        "active": 35,
+        "total": 68,
+        "rate": 0.5147058823529411,
+        "sourceRate": 0.5147,
+        "sheet": "AI Tools (Guru)",
+        "row": 520
+      }
+    },
+    {
+      "code": "BBB8303",
+      "name": "SEKOLAH KEBANGSAAN (L) BUKIT BINTANG (1)",
+      "type": "SK",
+      "students": {
+        "active": 51,
+        "total": 127,
+        "rate": 0.4015748031496063,
+        "sourceRate": 0.4016,
+        "sheet": "Murid",
+        "row": 180
+      },
+      "teachers": {
+        "active": 12,
+        "total": 17,
+        "rate": 0.7058823529411765,
+        "sourceRate": 0.7059,
+        "sheet": "Guru",
+        "row": 267
+      },
+      "ai": {
+        "active": 12,
+        "total": 17,
+        "rate": 0.7058823529411765,
+        "sourceRate": 0.7059,
+        "sheet": "AI Tools (Guru)",
+        "row": 267
+      }
+    },
+    {
+      "code": "BBB8305",
+      "name": "SEKOLAH KEBANGSAAN KAMPUNG TUNKU",
+      "type": "SK",
+      "students": {
+        "active": 284,
+        "total": 1274,
+        "rate": 0.22291993720565148,
+        "sourceRate": 0.2229,
+        "sheet": "Murid",
+        "row": 401
+      },
+      "teachers": {
+        "active": 47,
+        "total": 81,
+        "rate": 0.5802469135802469,
+        "sourceRate": 0.5802,
+        "sheet": "Guru",
+        "row": 425
+      },
+      "ai": {
+        "active": 47,
+        "total": 81,
+        "rate": 0.5802469135802469,
+        "sourceRate": 0.5802,
+        "sheet": "AI Tools (Guru)",
+        "row": 425
+      }
+    },
+    {
+      "code": "BBB8306",
+      "name": "SEKOLAH KEBANGSAAN LA SALLE PJ",
+      "type": "SK",
+      "students": {
+        "active": 60,
+        "total": 405,
+        "rate": 0.14814814814814814,
+        "sourceRate": 0.1481,
+        "sheet": "Murid",
+        "row": 533
+      },
+      "teachers": {
+        "active": 19,
+        "total": 39,
+        "rate": 0.48717948717948717,
+        "sourceRate": 0.4872,
+        "sheet": "Guru",
+        "row": 561
+      },
+      "ai": {
+        "active": 19,
+        "total": 39,
+        "rate": 0.48717948717948717,
+        "sourceRate": 0.4872,
+        "sheet": "AI Tools (Guru)",
+        "row": 561
+      }
+    },
+    {
+      "code": "BBB8307",
+      "name": "SEKOLAH KEBANGSAAN METHODIST PJ",
+      "type": "SK",
+      "students": {
+        "active": 110,
+        "total": 265,
+        "rate": 0.41509433962264153,
+        "sourceRate": 0.4151,
+        "sheet": "Murid",
+        "row": 158
+      },
+      "teachers": {
+        "active": 25,
+        "total": 29,
+        "rate": 0.8620689655172413,
+        "sourceRate": 0.8621,
+        "sheet": "Guru",
+        "row": 91
+      },
+      "ai": {
+        "active": 25,
+        "total": 29,
+        "rate": 0.8620689655172413,
+        "sourceRate": 0.8621,
+        "sheet": "AI Tools (Guru)",
+        "row": 91
+      }
+    },
+    {
+      "code": "BBB8308",
+      "name": "SEKOLAH KEBANGSAAN (1) PETALING JAYA",
+      "type": "SK",
+      "students": {
+        "active": 297,
+        "total": 435,
+        "rate": 0.6827586206896552,
+        "sourceRate": 0.6828,
+        "sheet": "Murid",
+        "row": 41
+      },
+      "teachers": {
+        "active": 13,
+        "total": 30,
+        "rate": 0.43333333333333335,
+        "sourceRate": 0.4333,
+        "sheet": "Guru",
+        "row": 617
+      },
+      "ai": {
+        "active": 13,
+        "total": 30,
+        "rate": 0.43333333333333335,
+        "sourceRate": 0.4333,
+        "sheet": "AI Tools (Guru)",
+        "row": 617
+      }
+    },
+    {
+      "code": "BBB8309",
+      "name": "SEKOLAH KEBANGSAAN (2) PETALING JAYA",
+      "type": "SK",
+      "students": {
+        "active": 22,
+        "total": 202,
+        "rate": 0.10891089108910891,
+        "sourceRate": 0.1089,
+        "sheet": "Murid",
+        "row": 619
+      },
+      "teachers": {
+        "active": 11,
+        "total": 17,
+        "rate": 0.6470588235294118,
+        "sourceRate": 0.6471,
+        "sheet": "Guru",
+        "row": 339
+      },
+      "ai": {
+        "active": 11,
+        "total": 17,
+        "rate": 0.6470588235294118,
+        "sourceRate": 0.6471,
+        "sheet": "AI Tools (Guru)",
+        "row": 339
+      }
+    },
+    {
+      "code": "BBB8310",
+      "name": "SEKOLAH KEBANGSAAN JALAN SELANGOR (SATU)",
+      "type": "SK",
+      "students": {
+        "active": 31,
+        "total": 108,
+        "rate": 0.28703703703703703,
+        "sourceRate": 0.287,
+        "sheet": "Murid",
+        "row": 305
+      },
+      "teachers": {
+        "active": 13,
+        "total": 17,
+        "rate": 0.7647058823529411,
+        "sourceRate": 0.7647,
+        "sheet": "Guru",
+        "row": 191
+      },
+      "ai": {
+        "active": 13,
+        "total": 17,
+        "rate": 0.7647058823529411,
+        "sourceRate": 0.7647,
+        "sheet": "AI Tools (Guru)",
+        "row": 191
+      }
+    },
+    {
+      "code": "BBB8311",
+      "name": "SEKOLAH KEBANGSAAN (2) JALAN SELANGOR",
+      "type": "SK",
+      "students": {
+        "active": 9,
+        "total": 96,
+        "rate": 0.09375,
+        "sourceRate": 0.0938,
+        "sheet": "Murid",
+        "row": 657
+      },
+      "teachers": {
+        "active": 13,
+        "total": 16,
+        "rate": 0.8125,
+        "sourceRate": 0.8125,
+        "sheet": "Guru",
+        "row": 129
+      },
+      "ai": {
+        "active": 13,
+        "total": 16,
+        "rate": 0.8125,
+        "sourceRate": 0.8125,
+        "sheet": "AI Tools (Guru)",
+        "row": 129
+      }
+    },
+    {
+      "code": "BBB8312",
+      "name": "SEKOLAH KEBANGSAAN SATU SULTAN ALAM SHAH",
+      "type": "SK",
+      "students": {
+        "active": 126,
+        "total": 425,
+        "rate": 0.2964705882352941,
+        "sourceRate": 0.2965,
+        "sheet": "Murid",
+        "row": 288
+      },
+      "teachers": {
+        "active": 24,
+        "total": 43,
+        "rate": 0.5581395348837209,
+        "sourceRate": 0.5581,
+        "sheet": "Guru",
+        "row": 458
+      },
+      "ai": {
+        "active": 24,
+        "total": 43,
+        "rate": 0.5581395348837209,
+        "sourceRate": 0.5581,
+        "sheet": "AI Tools (Guru)",
+        "row": 458
+      }
+    },
+    {
+      "code": "BBB8313",
+      "name": "SEKOLAH KEBANGSAAN (2) SULTAN ALAM SHAH",
+      "type": "SK",
+      "students": {
+        "active": 26,
+        "total": 224,
+        "rate": 0.11607142857142858,
+        "sourceRate": 0.1161,
+        "sheet": "Murid",
+        "row": 598
+      },
+      "teachers": {
+        "active": 12,
+        "total": 26,
+        "rate": 0.46153846153846156,
+        "sourceRate": 0.4615,
+        "sheet": "Guru",
+        "row": 585
+      },
+      "ai": {
+        "active": 12,
+        "total": 26,
+        "rate": 0.46153846153846156,
+        "sourceRate": 0.4615,
+        "sheet": "AI Tools (Guru)",
+        "row": 585
+      }
+    },
+    {
+      "code": "BBB8314",
+      "name": "SEKOLAH KEBANGSAAN SRI PETALING",
+      "type": "SK",
+      "students": {
+        "active": 198,
+        "total": 981,
+        "rate": 0.2018348623853211,
+        "sourceRate": 0.2018,
+        "sheet": "Murid",
+        "row": 438
+      },
+      "teachers": {
+        "active": 27,
+        "total": 63,
+        "rate": 0.42857142857142855,
+        "sourceRate": 0.4286,
+        "sheet": "Guru",
+        "row": 624
+      },
+      "ai": {
+        "active": 27,
+        "total": 63,
+        "rate": 0.42857142857142855,
+        "sourceRate": 0.4286,
+        "sheet": "AI Tools (Guru)",
+        "row": 624
+      }
+    },
+    {
+      "code": "BBB8316",
+      "name": "SEKOLAH KEBANGSAAN SUNGEI WAY",
+      "type": "SK",
+      "students": {
+        "active": 34,
+        "total": 432,
+        "rate": 0.0787037037037037,
+        "sourceRate": 0.0787,
+        "sheet": "Murid",
+        "row": 699
+      },
+      "teachers": {
+        "active": 9,
+        "total": 34,
+        "rate": 0.2647058823529412,
+        "sourceRate": 0.2647,
+        "sheet": "Guru",
+        "row": 858
+      },
+      "ai": {
+        "active": 9,
+        "total": 34,
+        "rate": 0.2647058823529412,
+        "sourceRate": 0.2647,
+        "sheet": "AI Tools (Guru)",
+        "row": 858
+      }
+    },
+    {
+      "code": "BBC8401",
+      "name": "SEKOLAH JENIS KEBANGSAAN (CINA) CHEN MOH",
+      "type": "SJKC",
+      "students": {
+        "active": 231,
+        "total": 762,
+        "rate": 0.3031496062992126,
+        "sourceRate": 0.3031,
+        "sheet": "Murid",
+        "row": 279
+      },
+      "teachers": {
+        "active": 23,
+        "total": 45,
+        "rate": 0.5111111111111111,
+        "sourceRate": 0.5111,
+        "sheet": "Guru",
+        "row": 525
+      },
+      "ai": {
+        "active": 23,
+        "total": 45,
+        "rate": 0.5111111111111111,
+        "sourceRate": 0.5111,
+        "sheet": "AI Tools (Guru)",
+        "row": 525
+      }
+    },
+    {
+      "code": "BBC8402",
+      "name": "SEKOLAH JENIS KEBANGSAAN (CINA) DAMANSARA",
+      "type": "SJKC",
+      "students": {
+        "active": 406,
+        "total": 1403,
+        "rate": 0.28937990021382753,
+        "sourceRate": 0.2894,
+        "sheet": "Murid",
+        "row": 301
+      },
+      "teachers": {
+        "active": 80,
+        "total": 82,
+        "rate": 0.975609756097561,
+        "sourceRate": 0.9756,
+        "sheet": "Guru",
+        "row": 16
+      },
+      "ai": {
+        "active": 80,
+        "total": 82,
+        "rate": 0.975609756097561,
+        "sourceRate": 0.9756,
+        "sheet": "AI Tools (Guru)",
+        "row": 16
+      }
+    },
+    {
+      "code": "BBC8408",
+      "name": "SEKOLAH JENIS KEBANGSAAN (CINA) SUNGAI WAY",
+      "type": "SJKC",
+      "students": {
+        "active": 75,
+        "total": 481,
+        "rate": 0.15592515592515593,
+        "sourceRate": 0.1559,
+        "sheet": "Murid",
+        "row": 513
+      },
+      "teachers": {
+        "active": 9,
+        "total": 31,
+        "rate": 0.2903225806451613,
+        "sourceRate": 0.2903,
+        "sheet": "Guru",
+        "row": 820
+      },
+      "ai": {
+        "active": 9,
+        "total": 31,
+        "rate": 0.2903225806451613,
+        "sourceRate": 0.2903,
+        "sheet": "AI Tools (Guru)",
+        "row": 820
+      }
+    },
+    {
+      "code": "BBC8409",
+      "name": "SEKOLAH JENIS KEBANGSAAN (CINA) SUNGAI BULOH",
+      "type": "SJKC",
+      "students": {
+        "active": 322,
+        "total": 923,
+        "rate": 0.3488624052004334,
+        "sourceRate": 0.3489,
+        "sheet": "Murid",
+        "row": 236
+      },
+      "teachers": {
+        "active": 38,
+        "total": 58,
+        "rate": 0.6551724137931034,
+        "sourceRate": 0.6552,
+        "sheet": "Guru",
+        "row": 329
+      },
+      "ai": {
+        "active": 38,
+        "total": 58,
+        "rate": 0.6551724137931034,
+        "sourceRate": 0.6552,
+        "sheet": "AI Tools (Guru)",
+        "row": 329
+      }
+    },
+    {
+      "code": "BBC8411",
+      "name": "SEKOLAH JENIS KEBANGSAAN (CINA) YUK CHAI",
+      "type": "SJKC",
+      "students": {
+        "active": 312,
+        "total": 2572,
+        "rate": 0.12130637636080871,
+        "sourceRate": 0.1213,
+        "sheet": "Murid",
+        "row": 587
+      },
+      "teachers": {
+        "active": 39,
+        "total": 138,
+        "rate": 0.2826086956521739,
+        "sourceRate": 0.2826,
+        "sheet": "Guru",
+        "row": 839
+      },
+      "ai": {
+        "active": 39,
+        "total": 138,
+        "rate": 0.2826086956521739,
+        "sourceRate": 0.2826,
+        "sheet": "AI Tools (Guru)",
+        "row": 839
+      }
+    },
+    {
+      "code": "BBC8412",
+      "name": "SEKOLAH JENIS KEBANGSAAN (CINA) YUK CHYUN",
+      "type": "SJKC",
+      "students": {
+        "active": 62,
+        "total": 590,
+        "rate": 0.10508474576271186,
+        "sourceRate": 0.1051,
+        "sheet": "Murid",
+        "row": 628
+      },
+      "teachers": {
+        "active": 26,
+        "total": 37,
+        "rate": 0.7027027027027027,
+        "sourceRate": 0.7027,
+        "sheet": "Guru",
+        "row": 271
+      },
+      "ai": {
+        "active": 26,
+        "total": 37,
+        "rate": 0.7027027027027027,
+        "sourceRate": 0.7027,
+        "sheet": "AI Tools (Guru)",
+        "row": 271
+      }
+    },
+    {
+      "code": "BBC8413",
+      "name": "SEKOLAH JENIS KEBANGSAAN (CINA) PUAY CHAI",
+      "type": "SJKC",
+      "students": {
+        "active": 475,
+        "total": 1747,
+        "rate": 0.2718946765884373,
+        "sourceRate": 0.2719,
+        "sheet": "Murid",
+        "row": 325
+      },
+      "teachers": {
+        "active": 53,
+        "total": 82,
+        "rate": 0.6463414634146342,
+        "sourceRate": 0.6463,
+        "sheet": "Guru",
+        "row": 341
+      },
+      "ai": {
+        "active": 53,
+        "total": 82,
+        "rate": 0.6463414634146342,
+        "sourceRate": 0.6463,
+        "sheet": "AI Tools (Guru)",
+        "row": 341
+      }
+    },
+    {
+      "code": "BBC8415",
+      "name": "SEKOLAH JENIS KEBANGSAAN (CINA) PUAY CHAI 2",
+      "type": "SJKC",
+      "students": {
+        "active": 1504,
+        "total": 2397,
+        "rate": 0.6274509803921569,
+        "sourceRate": 0.6275,
+        "sheet": "Murid",
+        "row": 57
+      },
+      "teachers": {
+        "active": 89,
+        "total": 105,
+        "rate": 0.8476190476190476,
+        "sourceRate": 0.8476,
+        "sheet": "Guru",
+        "row": 100
+      },
+      "ai": {
+        "active": 89,
+        "total": 105,
+        "rate": 0.8476190476190476,
+        "sourceRate": 0.8476,
+        "sheet": "AI Tools (Guru)",
+        "row": 100
+      }
+    },
+    {
+      "code": "BBC8418",
+      "name": "SEKOLAH JENIS KEBANGSAAN (CINA) DESA JAYA 2",
+      "type": "SJKC",
+      "students": {
+        "active": 231,
+        "total": 1756,
+        "rate": 0.1315489749430524,
+        "sourceRate": 0.1315,
+        "sheet": "Murid",
+        "row": 560
+      },
+      "teachers": {
+        "active": 31,
+        "total": 90,
+        "rate": 0.34444444444444444,
+        "sourceRate": 0.3444,
+        "sheet": "Guru",
+        "row": 740
+      },
+      "ai": {
+        "active": 31,
+        "total": 90,
+        "rate": 0.34444444444444444,
+        "sourceRate": 0.3444,
+        "sheet": "AI Tools (Guru)",
+        "row": 740
+      }
+    },
+    {
+      "code": "BBC8420",
+      "name": "SEKOLAH JENIS KEBANGSAAN (CINA) CHUNG HWA DAMANSARA",
+      "type": "SJKC",
+      "students": {
+        "active": 159,
+        "total": 359,
+        "rate": 0.4428969359331476,
+        "sourceRate": 0.4429,
+        "sheet": "Murid",
+        "row": 140
+      },
+      "teachers": {
+        "active": 22,
+        "total": 28,
+        "rate": 0.7857142857142857,
+        "sourceRate": 0.7857,
+        "sheet": "Guru",
+        "row": 160
+      },
+      "ai": {
+        "active": 22,
+        "total": 28,
+        "rate": 0.7857142857142857,
+        "sourceRate": 0.7857,
+        "sheet": "AI Tools (Guru)",
+        "row": 160
+      }
+    },
+    {
+      "code": "BBD8452",
+      "name": "SEKOLAH JENIS KEBANGSAAN (TAMIL) LDG EFFINGHAM",
+      "type": "SJKT",
+      "students": {
+        "active": 34,
+        "total": 226,
+        "rate": 0.1504424778761062,
+        "sourceRate": 0.1504,
+        "sheet": "Murid",
+        "row": 526
+      },
+      "teachers": {
+        "active": 11,
+        "total": 22,
+        "rate": 0.5,
+        "sourceRate": 0.5,
+        "sheet": "Guru",
+        "row": 536
+      },
+      "ai": {
+        "active": 11,
+        "total": 22,
+        "rate": 0.5,
+        "sourceRate": 0.5,
+        "sheet": "AI Tools (Guru)",
+        "row": 536
+      }
+    },
+    {
+      "code": "BBD8456",
+      "name": "SEKOLAH JENIS KEBANGSAAN (TAMIL) RRI SUNGAI BULOH",
+      "type": "SJKT",
+      "students": {
+        "active": 213,
+        "total": 430,
+        "rate": 0.49534883720930234,
+        "sourceRate": 0.4953,
+        "sheet": "Murid",
+        "row": 117
+      },
+      "teachers": {
+        "active": 22,
+        "total": 26,
+        "rate": 0.8461538461538461,
+        "sourceRate": 0.8462,
+        "sheet": "Guru",
+        "row": 102
+      },
+      "ai": {
+        "active": 22,
+        "total": 26,
+        "rate": 0.8461538461538461,
+        "sourceRate": 0.8462,
+        "sheet": "AI Tools (Guru)",
+        "row": 102
+      }
+    },
+    {
+      "code": "BBD8458",
+      "name": "SEKOLAH JENIS KEBANGSAAN (TAMIL) VIVEKANANDA",
+      "type": "SJKT",
+      "students": {
+        "active": 238,
+        "total": 475,
+        "rate": 0.5010526315789474,
+        "sourceRate": 0.5011,
+        "sheet": "Murid",
+        "row": 113
+      },
+      "teachers": {
+        "active": 30,
+        "total": 35,
+        "rate": 0.8571428571428571,
+        "sourceRate": 0.8571,
+        "sheet": "Guru",
+        "row": 96
+      },
+      "ai": {
+        "active": 30,
+        "total": 35,
+        "rate": 0.8571428571428571,
+        "sourceRate": 0.8571,
+        "sheet": "AI Tools (Guru)",
+        "row": 96
+      }
+    },
+    {
+      "code": "BBD8467",
+      "name": "SEKOLAH JENIS KEBANGSAAN (TAMIL) SEAPORT",
+      "type": "SJKT",
+      "students": {
+        "active": 37,
+        "total": 238,
+        "rate": 0.15546218487394958,
+        "sourceRate": 0.1555,
+        "sheet": "Murid",
+        "row": 514
+      },
+      "teachers": {
+        "active": 17,
+        "total": 25,
+        "rate": 0.68,
+        "sourceRate": 0.68,
+        "sheet": "Guru",
+        "row": 297
+      },
+      "ai": {
+        "active": 17,
+        "total": 25,
+        "rate": 0.68,
+        "sourceRate": 0.68,
+        "sheet": "AI Tools (Guru)",
+        "row": 297
+      }
+    },
+    {
+      "code": "BBD8471",
+      "name": "SEKOLAH JENIS KEBANGSAAN (TAMIL) PJS 1",
+      "type": "SJKT",
+      "students": {
+        "active": 104,
+        "total": 252,
+        "rate": 0.4126984126984127,
+        "sourceRate": 0.4127,
+        "sheet": "Murid",
+        "row": 160
+      },
+      "teachers": {
+        "active": 14,
+        "total": 20,
+        "rate": 0.7,
+        "sourceRate": 0.7,
+        "sheet": "Guru",
+        "row": 276
+      },
+      "ai": {
+        "active": 14,
+        "total": 20,
+        "rate": 0.7,
+        "sourceRate": 0.7,
+        "sheet": "AI Tools (Guru)",
+        "row": 276
+      }
+    },
+    {
+      "code": "BEA8602",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN SRI PERMATA",
+      "type": "SM",
+      "students": {
+        "active": 217,
+        "total": 861,
+        "rate": 0.25203252032520324,
+        "sourceRate": 0.252,
+        "sheet": "Murid",
+        "row": 360
+      },
+      "teachers": {
+        "active": 44,
+        "total": 73,
+        "rate": 0.6027397260273972,
+        "sourceRate": 0.6027,
+        "sheet": "Guru",
+        "row": 399
+      },
+      "ai": {
+        "active": 44,
+        "total": 73,
+        "rate": 0.6027397260273972,
+        "sourceRate": 0.6027,
+        "sheet": "AI Tools (Guru)",
+        "row": 399
+      }
+    },
+    {
+      "code": "BEA8607",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN TAMAN DATO' HARUN",
+      "type": "SM",
+      "students": {
+        "active": 20,
+        "total": 1503,
+        "rate": 0.01330671989354624,
+        "sourceRate": 0.0133,
+        "sheet": "Murid",
+        "row": 922
+      },
+      "teachers": {
+        "active": 35,
+        "total": 110,
+        "rate": 0.3181818181818182,
+        "sourceRate": 0.3182,
+        "sheet": "Guru",
+        "row": 789
+      },
+      "ai": {
+        "active": 35,
+        "total": 110,
+        "rate": 0.3181818181818182,
+        "sourceRate": 0.3182,
+        "sheet": "AI Tools (Guru)",
+        "row": 789
+      }
+    },
+    {
+      "code": "BEA8608",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN DAMANSARA JAYA",
+      "type": "SM",
+      "students": {
+        "active": 482,
+        "total": 1301,
+        "rate": 0.3704842428900845,
+        "sourceRate": 0.3705,
+        "sheet": "Murid",
+        "row": 209
+      },
+      "teachers": {
+        "active": 38,
+        "total": 68,
+        "rate": 0.5588235294117647,
+        "sourceRate": 0.5588,
+        "sheet": "Guru",
+        "row": 457
+      },
+      "ai": {
+        "active": 38,
+        "total": 68,
+        "rate": 0.5588235294117647,
+        "sourceRate": 0.5588,
+        "sheet": "AI Tools (Guru)",
+        "row": 457
+      }
+    },
+    {
+      "code": "BEA8611",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN DAMANSARA UTAMA",
+      "type": "SM",
+      "students": {
+        "active": 213,
+        "total": 985,
+        "rate": 0.216243654822335,
+        "sourceRate": 0.2162,
+        "sheet": "Murid",
+        "row": 414
+      },
+      "teachers": {
+        "active": 15,
+        "total": 59,
+        "rate": 0.2542372881355932,
+        "sourceRate": 0.2542,
+        "sheet": "Guru",
+        "row": 874
+      },
+      "ai": {
+        "active": 15,
+        "total": 59,
+        "rate": 0.2542372881355932,
+        "sourceRate": 0.2542,
+        "sheet": "AI Tools (Guru)",
+        "row": 874
+      }
+    },
+    {
+      "code": "BEA8613",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN TAMAN MEDAN",
+      "type": "SM",
+      "students": {
+        "active": 351,
+        "total": 1418,
+        "rate": 0.24753173483779972,
+        "sourceRate": 0.2475,
+        "sheet": "Murid",
+        "row": 365
+      },
+      "teachers": {
+        "active": 28,
+        "total": 93,
+        "rate": 0.3010752688172043,
+        "sourceRate": 0.3011,
+        "sheet": "Guru",
+        "row": 808
+      },
+      "ai": {
+        "active": 28,
+        "total": 93,
+        "rate": 0.3010752688172043,
+        "sourceRate": 0.3011,
+        "sheet": "AI Tools (Guru)",
+        "row": 808
+      }
+    },
+    {
+      "code": "BEA8615",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN KELANA JAYA",
+      "type": "SM",
+      "students": {
+        "active": 45,
+        "total": 710,
+        "rate": 0.06338028169014084,
+        "sourceRate": 0.0634,
+        "sheet": "Murid",
+        "row": 755
+      },
+      "teachers": {
+        "active": 15,
+        "total": 69,
+        "rate": 0.21739130434782608,
+        "sourceRate": 0.2174,
+        "sheet": "Guru",
+        "row": 911
+      },
+      "ai": {
+        "active": 15,
+        "total": 69,
+        "rate": 0.21739130434782608,
+        "sourceRate": 0.2174,
+        "sheet": "AI Tools (Guru)",
+        "row": 911
+      }
+    },
+    {
+      "code": "BEA8624",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN SRI UTAMA",
+      "type": "SM",
+      "students": {
+        "active": 45,
+        "total": 429,
+        "rate": 0.1048951048951049,
+        "sourceRate": 0.1049,
+        "sheet": "Murid",
+        "row": 629
+      },
+      "teachers": {
+        "active": 38,
+        "total": 43,
+        "rate": 0.8837209302325582,
+        "sourceRate": 0.8837,
+        "sheet": "Guru",
+        "row": 70
+      },
+      "ai": {
+        "active": 38,
+        "total": 43,
+        "rate": 0.8837209302325582,
+        "sourceRate": 0.8837,
+        "sheet": "AI Tools (Guru)",
+        "row": 70
+      }
+    },
+    {
+      "code": "BEA8631",
+      "name": "KOLEJ TINGKATAN ENAM BANDAR UTAMA",
+      "type": "Lain-lain",
+      "students": {
+        "active": 9,
+        "total": 511,
+        "rate": 0.01761252446183953,
+        "sourceRate": 0.0176,
+        "sheet": "Murid",
+        "row": 912
+      },
+      "teachers": {
+        "active": 25,
+        "total": 62,
+        "rate": 0.4032258064516129,
+        "sourceRate": 0.4032,
+        "sheet": "Guru",
+        "row": 659
+      },
+      "ai": {
+        "active": 25,
+        "total": 62,
+        "rate": 0.4032258064516129,
+        "sourceRate": 0.4032,
+        "sheet": "AI Tools (Guru)",
+        "row": 659
+      }
+    },
+    {
+      "code": "BEA8638",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN SEKSYEN 10 KOTA DAMANSARA",
+      "type": "SM",
+      "students": {
+        "active": 109,
+        "total": 1559,
+        "rate": 0.06991661321359846,
+        "sourceRate": 0.0699,
+        "sheet": "Murid",
+        "row": 730
+      },
+      "teachers": {
+        "active": 34,
+        "total": 105,
+        "rate": 0.3238095238095238,
+        "sourceRate": 0.3238,
+        "sheet": "Guru",
+        "row": 778
+      },
+      "ai": {
+        "active": 34,
+        "total": 105,
+        "rate": 0.3238095238095238,
+        "sourceRate": 0.3238,
+        "sheet": "AI Tools (Guru)",
+        "row": 778
+      }
+    },
+    {
+      "code": "BEA8640",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN TROPICANA",
+      "type": "SM",
+      "students": {
+        "active": 59,
+        "total": 979,
+        "rate": 0.0602655771195097,
+        "sourceRate": 0.0603,
+        "sheet": "Murid",
+        "row": 771
+      },
+      "teachers": {
+        "active": 33,
+        "total": 60,
+        "rate": 0.55,
+        "sourceRate": 0.55,
+        "sheet": "Guru",
+        "row": 469
+      },
+      "ai": {
+        "active": 33,
+        "total": 60,
+        "rate": 0.55,
+        "sourceRate": 0.55,
+        "sheet": "AI Tools (Guru)",
+        "row": 469
+      }
+    },
+    {
+      "code": "BEA8641",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN BANDAR SRI DAMANSARA 2",
+      "type": "SM",
+      "students": {
+        "active": 125,
+        "total": 1171,
+        "rate": 0.1067463706233988,
+        "sourceRate": 0.1067,
+        "sheet": "Murid",
+        "row": 622
+      },
+      "teachers": {
+        "active": 28,
+        "total": 81,
+        "rate": 0.345679012345679,
+        "sourceRate": 0.3457,
+        "sheet": "Guru",
+        "row": 736
+      },
+      "ai": {
+        "active": 28,
+        "total": 81,
+        "rate": 0.345679012345679,
+        "sourceRate": 0.3457,
+        "sheet": "AI Tools (Guru)",
+        "row": 736
+      }
+    },
+    {
+      "code": "BEA8643",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN BANDAR UTAMA DAMANSARA 3",
+      "type": "SM",
+      "students": {
+        "active": 21,
+        "total": 1102,
+        "rate": 0.019056261343012703,
+        "sourceRate": 0.0191,
+        "sheet": "Murid",
+        "row": 907
+      },
+      "teachers": {
+        "active": 33,
+        "total": 65,
+        "rate": 0.5076923076923077,
+        "sourceRate": 0.5077,
+        "sheet": "Guru",
+        "row": 530
+      },
+      "ai": {
+        "active": 33,
+        "total": 65,
+        "rate": 0.5076923076923077,
+        "sourceRate": 0.5077,
+        "sheet": "AI Tools (Guru)",
+        "row": 530
+      }
+    },
+    {
+      "code": "BEA8644",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN BANDAR UTAMA DAMANSARA (4)",
+      "type": "SM",
+      "students": {
+        "active": 147,
+        "total": 1174,
+        "rate": 0.1252129471890971,
+        "sourceRate": 0.1252,
+        "sheet": "Murid",
+        "row": 579
+      },
+      "teachers": {
+        "active": 25,
+        "total": 76,
+        "rate": 0.32894736842105265,
+        "sourceRate": 0.3289,
+        "sheet": "Guru",
+        "row": 765
+      },
+      "ai": {
+        "active": 25,
+        "total": 76,
+        "rate": 0.32894736842105265,
+        "sourceRate": 0.3289,
+        "sheet": "AI Tools (Guru)",
+        "row": 765
+      }
+    },
+    {
+      "code": "BEA8652",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN DAMANSARA DAMAI 1",
+      "type": "SM",
+      "students": {
+        "active": 608,
+        "total": 1960,
+        "rate": 0.31020408163265306,
+        "sourceRate": 0.3102,
+        "sheet": "Murid",
+        "row": 272
+      },
+      "teachers": {
+        "active": 41,
+        "total": 126,
+        "rate": 0.3253968253968254,
+        "sourceRate": 0.3254,
+        "sheet": "Guru",
+        "row": 773
+      },
+      "ai": {
+        "active": 41,
+        "total": 126,
+        "rate": 0.3253968253968254,
+        "sourceRate": 0.3254,
+        "sheet": "AI Tools (Guru)",
+        "row": 773
+      }
+    },
+    {
+      "code": "BEA8655",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN SEKSYEN 4 KOTA DAMANSARA",
+      "type": "SM",
+      "students": {
+        "active": 242,
+        "total": 979,
+        "rate": 0.24719101123595505,
+        "sourceRate": 0.2472,
+        "sheet": "Murid",
+        "row": 366
+      },
+      "teachers": {
+        "active": 66,
+        "total": 80,
+        "rate": 0.825,
+        "sourceRate": 0.825,
+        "sheet": "Guru",
+        "row": 121
+      },
+      "ai": {
+        "active": 66,
+        "total": 80,
+        "rate": 0.825,
+        "sourceRate": 0.825,
+        "sheet": "AI Tools (Guru)",
+        "row": 121
+      }
+    },
+    {
+      "code": "BEA8658",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN BANDAR UTAMA DAMANSARA (2)",
+      "type": "SM",
+      "students": {
+        "active": 34,
+        "total": 665,
+        "rate": 0.05112781954887218,
+        "sourceRate": 0.0511,
+        "sheet": "Murid",
+        "row": 804
+      },
+      "teachers": {
+        "active": 30,
+        "total": 55,
+        "rate": 0.5454545454545454,
+        "sourceRate": 0.5455,
+        "sheet": "Guru",
+        "row": 472
+      },
+      "ai": {
+        "active": 30,
+        "total": 55,
+        "rate": 0.5454545454545454,
+        "sourceRate": 0.5455,
+        "sheet": "AI Tools (Guru)",
+        "row": 472
+      }
+    },
+    {
+      "code": "BEA8659",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN BANDAR SRI DAMANSARA 1",
+      "type": "SM",
+      "students": {
+        "active": 32,
+        "total": 1439,
+        "rate": 0.022237665045170257,
+        "sourceRate": 0.0222,
+        "sheet": "Murid",
+        "row": 893
+      },
+      "teachers": {
+        "active": 35,
+        "total": 98,
+        "rate": 0.35714285714285715,
+        "sourceRate": 0.3571,
+        "sheet": "Guru",
+        "row": 723
+      },
+      "ai": {
+        "active": 35,
+        "total": 98,
+        "rate": 0.35714285714285715,
+        "sourceRate": 0.3571,
+        "sheet": "AI Tools (Guru)",
+        "row": 723
+      }
+    },
+    {
+      "code": "BEA8661",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN LEMBAH SUBANG",
+      "type": "SM",
+      "students": {
+        "active": 94,
+        "total": 760,
+        "rate": 0.12368421052631579,
+        "sourceRate": 0.1237,
+        "sheet": "Murid",
+        "row": 582
+      },
+      "teachers": {
+        "active": 21,
+        "total": 51,
+        "rate": 0.4117647058823529,
+        "sourceRate": 0.4118,
+        "sheet": "Guru",
+        "row": 647
+      },
+      "ai": {
+        "active": 21,
+        "total": 51,
+        "rate": 0.4117647058823529,
+        "sourceRate": 0.4118,
+        "sheet": "AI Tools (Guru)",
+        "row": 647
+      }
+    },
+    {
+      "code": "BEA8666",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN SEKSYEN 8 KOTA DAMANSARA",
+      "type": "SM",
+      "students": {
+        "active": 7,
+        "total": 800,
+        "rate": 0.00875,
+        "sourceRate": 0.0088,
+        "sheet": "Murid",
+        "row": 932
+      },
+      "teachers": {
+        "active": 16,
+        "total": 67,
+        "rate": 0.23880597014925373,
+        "sourceRate": 0.2388,
+        "sheet": "Guru",
+        "row": 896
+      },
+      "ai": {
+        "active": 16,
+        "total": 67,
+        "rate": 0.23880597014925373,
+        "sourceRate": 0.2388,
+        "sheet": "AI Tools (Guru)",
+        "row": 896
+      }
+    },
+    {
+      "code": "BEA8669",
+      "name": "KOLEJ TINGKATAN ENAM PETALING JAYA",
+      "type": "Lain-lain",
+      "students": {
+        "active": 4,
+        "total": 518,
+        "rate": 0.007722007722007722,
+        "sourceRate": 0.0077,
+        "sheet": "Murid",
+        "row": 937
+      },
+      "teachers": {
+        "active": 38,
+        "total": 67,
+        "rate": 0.5671641791044776,
+        "sourceRate": 0.5672,
+        "sheet": "Guru",
+        "row": 441
+      },
+      "ai": {
+        "active": 38,
+        "total": 67,
+        "rate": 0.5671641791044776,
+        "sourceRate": 0.5672,
+        "sheet": "AI Tools (Guru)",
+        "row": 441
+      }
+    },
+    {
+      "code": "BEB8651",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN ASSUNTA",
+      "type": "SM",
+      "students": {
+        "active": 135,
+        "total": 1230,
+        "rate": 0.10975609756097561,
+        "sourceRate": 0.1098,
+        "sheet": "Murid",
+        "row": 615
+      },
+      "teachers": {
+        "active": 35,
+        "total": 90,
+        "rate": 0.3888888888888889,
+        "sourceRate": 0.3889,
+        "sheet": "Guru",
+        "row": 676
+      },
+      "ai": {
+        "active": 35,
+        "total": 90,
+        "rate": 0.3888888888888889,
+        "sourceRate": 0.3889,
+        "sheet": "AI Tools (Guru)",
+        "row": 676
+      }
+    },
+    {
+      "code": "BEB8652",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN (L) BUKIT BINTANG",
+      "type": "SM",
+      "students": {
+        "active": 42,
+        "total": 381,
+        "rate": 0.11023622047244094,
+        "sourceRate": 0.1102,
+        "sheet": "Murid",
+        "row": 612
+      },
+      "teachers": {
+        "active": 12,
+        "total": 40,
+        "rate": 0.3,
+        "sourceRate": 0.3,
+        "sheet": "Guru",
+        "row": 811
+      },
+      "ai": {
+        "active": 12,
+        "total": 40,
+        "rate": 0.3,
+        "sourceRate": 0.3,
+        "sheet": "AI Tools (Guru)",
+        "row": 811
+      }
+    },
+    {
+      "code": "BEB8653",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN KATHOLIK",
+      "type": "SM",
+      "students": {
+        "active": 171,
+        "total": 2804,
+        "rate": 0.06098430813124108,
+        "sourceRate": 0.061,
+        "sheet": "Murid",
+        "row": 768
+      },
+      "teachers": {
+        "active": 29,
+        "total": 153,
+        "rate": 0.1895424836601307,
+        "sourceRate": 0.1895,
+        "sheet": "Guru",
+        "row": 934
+      },
+      "ai": {
+        "active": 29,
+        "total": 153,
+        "rate": 0.1895424836601307,
+        "sourceRate": 0.1895,
+        "sheet": "AI Tools (Guru)",
+        "row": 934
+      }
+    },
+    {
+      "code": "BEB8654",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN LA SALLE PJ",
+      "type": "SM",
+      "students": {
+        "active": 278,
+        "total": 905,
+        "rate": 0.30718232044198895,
+        "sourceRate": 0.3072,
+        "sheet": "Murid",
+        "row": 275
+      },
+      "teachers": {
+        "active": 48,
+        "total": 65,
+        "rate": 0.7384615384615385,
+        "sourceRate": 0.7385,
+        "sheet": "Guru",
+        "row": 221
+      },
+      "ai": {
+        "active": 48,
+        "total": 65,
+        "rate": 0.7384615384615385,
+        "sourceRate": 0.7385,
+        "sheet": "AI Tools (Guru)",
+        "row": 221
+      }
+    },
+    {
+      "code": "BEB8655",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN (P) SRI AMAN",
+      "type": "SM",
+      "students": {
+        "active": 147,
+        "total": 824,
+        "rate": 0.1783980582524272,
+        "sourceRate": 0.1784,
+        "sheet": "Murid",
+        "row": 477
+      },
+      "teachers": {
+        "active": 26,
+        "total": 66,
+        "rate": 0.3939393939393939,
+        "sourceRate": 0.3939,
+        "sheet": "Guru",
+        "row": 672
+      },
+      "ai": {
+        "active": 26,
+        "total": 66,
+        "rate": 0.3939393939393939,
+        "sourceRate": 0.3939,
+        "sheet": "AI Tools (Guru)",
+        "row": 672
+      }
+    },
+    {
+      "code": "BEB8656",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN TAMAN SEA",
+      "type": "SM",
+      "students": {
+        "active": 98,
+        "total": 1320,
+        "rate": 0.07424242424242425,
+        "sourceRate": 0.0742,
+        "sheet": "Murid",
+        "row": 716
+      },
+      "teachers": {
+        "active": 31,
+        "total": 90,
+        "rate": 0.34444444444444444,
+        "sourceRate": 0.3444,
+        "sheet": "Guru",
+        "row": 739
+      },
+      "ai": {
+        "active": 31,
+        "total": 90,
+        "rate": 0.34444444444444444,
+        "sourceRate": 0.3444,
+        "sheet": "AI Tools (Guru)",
+        "row": 739
+      }
+    },
+    {
+      "code": "BEB8657",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN SULTAN ABDUL SAMAD",
+      "type": "SM",
+      "students": {
+        "active": 191,
+        "total": 1350,
+        "rate": 0.14148148148148149,
+        "sourceRate": 0.1415,
+        "sheet": "Murid",
+        "row": 546
+      },
+      "teachers": {
+        "active": 20,
+        "total": 95,
+        "rate": 0.21052631578947367,
+        "sourceRate": 0.2105,
+        "sheet": "Guru",
+        "row": 916
+      },
+      "ai": {
+        "active": 20,
+        "total": 95,
+        "rate": 0.21052631578947367,
+        "sourceRate": 0.2105,
+        "sheet": "AI Tools (Guru)",
+        "row": 916
+      }
+    },
+    {
+      "code": "BEB8658",
+      "name": "SEKOLAH MENENGAH KEBANGSAAN (P) TMN PETALING",
+      "type": "SM",
+      "students": {
+        "active": 29,
+        "total": 374,
+        "rate": 0.07754010695187166,
+        "sourceRate": 0.0775,
+        "sheet": "Murid",
+        "row": 700
+      },
+      "teachers": {
+        "active": 17,
+        "total": 42,
+        "rate": 0.40476190476190477,
+        "sourceRate": 0.4048,
+        "sheet": "Guru",
+        "row": 656
+      },
+      "ai": {
+        "active": 17,
+        "total": 42,
+        "rate": 0.40476190476190477,
+        "sourceRate": 0.4048,
+        "sheet": "AI Tools (Guru)",
+        "row": 656
+      }
+    }
+  ],
+  "limitations": [
+    "Satu snapshot sahaja; perubahan masa dan trend belum boleh dikira.",
+    "Kiraan AI Tools (Guru) dan Guru sama bagi semua sekolah daerah. Tanpa ID pengguna, identiti individu yang sama tidak boleh disahkan; kiraan tidak dijumlahkan sebagai pengguna unik.",
+    "Helaian aplikasi tiada PPD atau kod sekolah; penggunaan aplikasi tidak boleh dikaitkan dengan Petaling Utama.",
+    "Kadar aktif dikira daripada TOTAL PENGGUNA dalam fail; definisi pengguna aktif tidak diperincikan oleh sumber."
+  ],
+  "applicationContext": {
+    "scope": "Selangor — bukan metrik daerah",
+    "items": [
+      {
+        "name": "Classroom",
+        "active": 141037
+      },
+      {
+        "name": "Kelas Digital",
+        "active": 67571
+      },
+      {
+        "name": "Ruang Ilmu",
+        "active": 57027
+      },
+      {
+        "name": "ADVANCED INTEGRATED NILAM SYSTEM (AINS)",
+        "active": 37824
+      },
+      {
+        "name": "Beg Sekolah",
+        "active": 35406
+      },
+      {
+        "name": "Chat GPT",
+        "active": 18112
+      },
+      {
+        "name": "Aplikasi Bahan Interaktif",
+        "active": 15805
+      },
+      {
+        "name": "Pandai",
+        "active": 14461
+      },
+      {
+        "name": "Baucar Buku Madani 2026",
+        "active": 13252
+      },
+      {
+        "name": "Aplikasi Kemahiran Digital",
+        "active": 11963
+      },
+      {
+        "name": "Gemini AI",
+        "active": 11878
+      },
+      {
+        "name": "Meet",
+        "active": 11197
+      },
+      {
+        "name": "Bahagian Matrikulasi (BM)",
+        "active": 10383
+      },
+      {
+        "name": "Auto Draw",
+        "active": 9768
+      },
+      {
+        "name": "DETa AI",
+        "active": 8838
+      },
+      {
+        "name": "Drive",
+        "active": 8008
+      },
+      {
+        "name": "RD - Canva",
+        "active": 7918
+      },
+      {
+        "name": "Apple Student's Resources",
+        "active": 7806
+      },
+      {
+        "name": "Notebook LM",
+        "active": 6301
+      },
+      {
+        "name": "Buku Teks Digital Interaktif",
+        "active": 6176
+      }
+    ],
+    "scopeBasis": "Disahkan oleh pemilik laporan; tiada pecahan sekolah atau daerah dalam helaian aplikasi."
+  },
+  "audit": {
+    "source": "Pengguna_Aktif_Murid_dan_Guru_Selangor_1_Oktober_20_Oktober_2026.xlsx",
+    "sha256": "96a450e50499c6a72a18d7e60f43a9830f63b2eeadc8b4ca7478f5f2a0ce4c0f",
+    "filter": "PPD == PPD PETALING UTAMA (trimmed uppercase exact match)",
+    "sheets": {
+      "Murid": {
+        "headers": [
+          "NEGERI",
+          "PPD",
+          "NAMASEKOLAH",
+          "KODSEKOLAH",
+          "PENGGUNA AKTIF",
+          "TOTAL PENGGUNA",
+          "PERATUS"
+        ],
+        "populatedRows": 947,
+        "districtRows": 85,
+        "active": 14769,
+        "total": 73494
+      },
+      "Guru": {
+        "headers": [
+          "NEGERI",
+          "PPD",
+          "NAMASEKOLAH",
+          "KODSEKOLAH",
+          "PENGGUNA AKTIF",
+          "TOTAL PENGGUNA",
+          "PERATUS"
+        ],
+        "populatedRows": 947,
+        "districtRows": 85,
+        "active": 2287,
+        "total": 4946
+      },
+      "AI Tools (Guru)": {
+        "headers": [
+          "NEGERI",
+          "PPD",
+          "NAMASEKOLAH",
+          "KODSEKOLAH",
+          "NAMA RUANG",
+          "PENGGUNA AKTIF",
+          "TOTAL PENGGUNA",
+          "PERATUS"
+        ],
+        "populatedRows": 947,
+        "districtRows": 85,
+        "active": 2287,
+        "total": 4946
+      },
+      "Aplikasi (Murid dan Guru)": {
+        "headers": [
+          "APLIKASI",
+          "PENGGUNA AKTIF"
+        ],
+        "populatedRows": 20,
+        "districtRows": null
+      }
+    },
+    "issues": [],
+    "teacherAiIdenticalCounts": 85,
+    "applicationScope": "Selangor, confirmed by the report owner. Application sheet has no school or district breakdown; excluded from district metrics.",
+    "method": "Weighted rate = sum(active) / sum(total). Teacher and AI Tools counts are equal in all district rows; user identity overlap cannot be determined without IDs, so these measures are not added as verified unique users. Blank is unavailable; zero is observed zero. Period is inferred from filename; no daily series."
+  }
+}

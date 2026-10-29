@@ -52,6 +52,6 @@ Explorer memindahkan header dan nilai ukuran dipilih ke lajur pertama selepas se
 
 ## Pengesahan
 
-22 ujian meliputi jumlah kawalan XLSX, padanan 85 kod, statistik sumber tidak berubah, kategori/pengesahan pemilik, carian, susunan, seri, nilai kosong, beza mata peratus, sejarah bertindih, agregat kategori, pasangan peta, julat AI dan pemisahan aplikasi Selangor.
+23 ujian meliputi jumlah kawalan XLSX, padanan 85 kod, statistik sumber tidak berubah, kategori/pengesahan pemilik, carian, susunan, seri, nilai kosong, beza mata peratus, sejarah bertindih, agregat kategori, pasangan peta, julat AI dan pemisahan aplikasi Selangor.
 
 Semakan pelayar desktop/telefon meliputi carian, kategori, lajur bergerak, profil, AI, perbandingan, peta dan lebar 390px. Binaan produksi mesti lulus sebelum deploy.

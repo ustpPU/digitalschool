@@ -1,0 +1,65 @@
+{
+  "source": "Pengguna_Aktif_Murid_dan_Guru_Selangor_1_Oktober_20_Oktober_2026.xlsx",
+  "sha256": "96a450e50499c6a72a18d7e60f43a9830f63b2eeadc8b4ca7478f5f2a0ce4c0f",
+  "filter": "PPD == PPD PETALING UTAMA (trimmed uppercase exact match)",
+  "sheets": {
+    "Murid": {
+      "headers": [
+        "NEGERI",
+        "PPD",
+        "NAMASEKOLAH",
+        "KODSEKOLAH",
+        "PENGGUNA AKTIF",
+        "TOTAL PENGGUNA",
+        "PERATUS"
+      ],
+      "populatedRows": 947,
+      "districtRows": 85,
+      "active": 14769,
+      "total": 73494
+    },
+    "Guru": {
+      "headers": [
+        "NEGERI",
+        "PPD",
+        "NAMASEKOLAH",
+        "KODSEKOLAH",
+        "PENGGUNA AKTIF",
+        "TOTAL PENGGUNA",
+        "PERATUS"
+      ],
+      "populatedRows": 947,
+      "districtRows": 85,
+      "active": 2287,
+      "total": 4946
+    },
+    "AI Tools (Guru)": {
+      "headers": [
+        "NEGERI",
+        "PPD",
+        "NAMASEKOLAH",
+        "KODSEKOLAH",
+        "NAMA RUANG",
+        "PENGGUNA AKTIF",
+        "TOTAL PENGGUNA",
+        "PERATUS"
+      ],
+      "populatedRows": 947,
+      "districtRows": 85,
+      "active": 2287,
+      "total": 4946
+    },
+    "Aplikasi (Murid dan Guru)": {
+      "headers": [
+        "APLIKASI",
+        "PENGGUNA AKTIF"
+      ],
+      "populatedRows": 20,
+      "districtRows": null
+    }
+  },
+  "issues": [],
+  "teacherAiIdenticalCounts": 85,
+  "applicationScope": "Selangor, confirmed by the report owner. Application sheet has no school or district breakdown; excluded from district metrics.",
+  "method": "Weighted rate = sum(active) / sum(total). Teacher and AI Tools counts are equal in all district rows; user identity overlap cannot be determined without IDs, so these measures are not added as verified unique users. Blank is unavailable; zero is observed zero. Period is inferred from filename; no daily series."
+}

@@ -1,0 +1,534 @@
+{
+  "source": {
+    "title": "Senarai Sekolah Rendah dan Menengah KPM — 31 Januari 2020",
+    "asOf": "2020-01-31",
+    "url": "https://www.moe.gov.my/storage/files/shares/laporan_dan_statistik/senarai_sekolah/SENARAI%20SEKOLAH%20WEB%20KPM%20-JAN2020.xlsx",
+    "page": "https://www.moe.gov.my/index.php/sekolah-menengah-kebangsaan-harian",
+    "sha256": "6344f950e0b18e10d28b09f3860c2c1096fe0bbe6c1301f165b563185f9c3f48",
+    "sheet": "SENARAI SEKOLAH WEB KPM",
+    "categoryColumn": "JENIS/LABEL",
+    "codeColumn": "KODSEKOLAH"
+  },
+  "note": "Kategori dipadankan melalui kod sekolah. BBD8471 disahkan sebagai SJKT oleh pemilik sistem pada 29 Oktober 2026; rekod direktori asal yang lain dikekalkan.",
+  "unmatched": [],
+  "schools": {
+    "BBA8101": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN TAMAN DATO HARUN (2)",
+      "row": 1381
+    },
+    "BBA8102": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN KELANA JAYA (2)",
+      "row": 1382
+    },
+    "BBA8103": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN DAMANSARA JAYA (2)",
+      "row": 1383
+    },
+    "BBA8106": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN TAMAN MEGAH",
+      "row": 1386
+    },
+    "BBA8201": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN PETALING JAYA",
+      "row": 1387
+    },
+    "BBA8206": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN BUKIT LANJAN",
+      "row": 1392
+    },
+    "BBA8208": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN DAMANSARA UTAMA",
+      "row": 1394
+    },
+    "BBA8209": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN SRI DAMAI",
+      "row": 1395
+    },
+    "BBA8210": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN TAMAN DATO' HARUN (SATU)",
+      "row": 1396
+    },
+    "BBA8211": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN KELANA JAYA (1)",
+      "row": 1397
+    },
+    "BBA8214": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN TAMAN SEA",
+      "row": 1400
+    },
+    "BBA8215": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN DAMANSARA JAYA (1)",
+      "row": 1401
+    },
+    "BBA8220": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN TAMAN MEDAN",
+      "row": 1406
+    },
+    "BBA8221": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN SRI KELANA",
+      "row": 1407
+    },
+    "BBA8236": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN SEKSYEN 7 KOTA DAMANSARA",
+      "row": 1422
+    },
+    "BBA8241": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN BANDAR BARU SRI DAMANSARA",
+      "row": 1427
+    },
+    "BBA8244": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN BANDAR UTAMA DAMANSARA",
+      "row": 1430
+    },
+    "BBA8248": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN BANDAR UTAMA DAMANSARA 2",
+      "row": 1434
+    },
+    "BBA8250": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN SEKSYEN 6 KOTA DAMANSARA",
+      "row": 1436
+    },
+    "BBA8253": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN BANDAR BARU SRI DAMANSARA 2",
+      "row": 1439
+    },
+    "BBA8259": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN BANDAR SRI DAMANSARA 3",
+      "row": 1445
+    },
+    "BBA8260": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN BANDAR UTAMA DAMANSARA (4)",
+      "row": 1446
+    },
+    "BBA8263": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN TROPICANA",
+      "row": 1449
+    },
+    "BBA8265": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN BANDAR SRI DAMANSARA 1",
+      "row": 1451
+    },
+    "BBA8270": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN SEKSYEN 9 KOTA DAMANSARA",
+      "row": 1456
+    },
+    "BBA8271": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN DAMANSARA DAMAI 1",
+      "row": 1457
+    },
+    "BBA8276": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN LEMBAH SUBANG",
+      "row": 1462
+    },
+    "BBA8277": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN SEKSYEN 11 KOTA DAMANSARA",
+      "row": 1463
+    },
+    "BBA8285": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN DAMANSARA DAMAI 2",
+      "row": 1470
+    },
+    "BBB8302": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN ASSUNTA (2)",
+      "row": 1538
+    },
+    "BBB8303": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN (L) BUKIT BINTANG (1)",
+      "row": 1539
+    },
+    "BBB8305": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN KAMPUNG TUNKU",
+      "row": 1541
+    },
+    "BBB8306": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN LA SALLE PJ",
+      "row": 1542
+    },
+    "BBB8307": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN METHODIST PJ",
+      "row": 1543
+    },
+    "BBB8308": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN (1) PETALING JAYA",
+      "row": 1544
+    },
+    "BBB8309": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN (2) PETALING JAYA",
+      "row": 1545
+    },
+    "BBB8310": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN JALAN SELANGOR (SATU)",
+      "row": 1546
+    },
+    "BBB8311": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN (2) JALAN SELANGOR",
+      "row": 1547
+    },
+    "BBB8312": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN SATU SULTAN ALAM SHAH",
+      "row": 1548
+    },
+    "BBB8313": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN (2) SULTAN ALAM SHAH",
+      "row": 1549
+    },
+    "BBB8314": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN SRI PETALING",
+      "row": 1550
+    },
+    "BBB8316": {
+      "category": "SK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH KEBANGSAAN SUNGEI WAY",
+      "row": 1552
+    },
+    "BBC8401": {
+      "category": "SJKC",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH JENIS KEBANGSAAN (CINA) CHEN MOH",
+      "row": 1638
+    },
+    "BBC8402": {
+      "category": "SJKC",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH JENIS KEBANGSAAN (CINA) DAMANSARA",
+      "row": 1639
+    },
+    "BBC8408": {
+      "category": "SJKC",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH JENIS KEBANGSAAN (CINA) SUNGAI WAY",
+      "row": 1645
+    },
+    "BBC8409": {
+      "category": "SJKC",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH JENIS KEBANGSAAN (CINA) SUNGAI BULOH",
+      "row": 1646
+    },
+    "BBC8411": {
+      "category": "SJKC",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH JENIS KEBANGSAAN (CINA) YUK CHAI",
+      "row": 1648
+    },
+    "BBC8412": {
+      "category": "SJKC",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH JENIS KEBANGSAAN (CINA) YUK CHYUN",
+      "row": 1649
+    },
+    "BBC8413": {
+      "category": "SJKC",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH JENIS KEBANGSAAN (CINA) PUAY CHAI",
+      "row": 1650
+    },
+    "BBC8415": {
+      "category": "SJKC",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH JENIS KEBANGSAAN (CINA) PUAY CHAI 2",
+      "row": 1652
+    },
+    "BBC8418": {
+      "category": "SJKC",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH JENIS KEBANGSAAN (CINA) DESA JAYA 2",
+      "row": 1655
+    },
+    "BBC8420": {
+      "category": "SJKC",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH JENIS KEBANGSAAN (CINA) CHUNG HWA DAMANSARA",
+      "row": 1657
+    },
+    "BBD8452": {
+      "category": "SJKT",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH JENIS KEBANGSAAN (TAMIL) LDG EFFINGHAM",
+      "row": 1742
+    },
+    "BBD8456": {
+      "category": "SJKT",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH JENIS KEBANGSAAN (TAMIL) RRI SUNGAI BULOH",
+      "row": 1746
+    },
+    "BBD8458": {
+      "category": "SJKT",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH JENIS KEBANGSAAN (TAMIL) VIVEKANANDA",
+      "row": 1748
+    },
+    "BBD8467": {
+      "category": "SJKT",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH JENIS KEBANGSAAN (TAMIL) SEAPORT",
+      "row": 1755
+    },
+    "BEA8602": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN SRI PERMATA",
+      "row": 1888
+    },
+    "BEA8607": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN TAMAN DATO' HARUN",
+      "row": 1893
+    },
+    "BEA8608": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN DAMANSARA JAYA",
+      "row": 1894
+    },
+    "BEA8611": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN DAMANSARA UTAMA",
+      "row": 1897
+    },
+    "BEA8613": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN TAMAN MEDAN",
+      "row": 1899
+    },
+    "BEA8615": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN KELANA JAYA",
+      "row": 1901
+    },
+    "BEA8624": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN SRI UTAMA",
+      "row": 1910
+    },
+    "BEA8631": {
+      "category": "KT6",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "KOLEJ TINGKATAN ENAM BANDAR UTAMA",
+      "row": 1917
+    },
+    "BEA8638": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN SEKSYEN 10 KOTA DAMANSARA",
+      "row": 1924
+    },
+    "BEA8640": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN TROPICANA",
+      "row": 1926
+    },
+    "BEA8641": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN BANDAR SRI DAMANSARA 2",
+      "row": 1927
+    },
+    "BEA8643": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN BANDAR UTAMA DAMANSARA 3",
+      "row": 1929
+    },
+    "BEA8644": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN BANDAR UTAMA DAMANSARA (4)",
+      "row": 1930
+    },
+    "BEA8652": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN DAMANSARA DAMAI 1",
+      "row": 1936
+    },
+    "BEA8655": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN SEKSYEN 4 KOTA DAMANSARA",
+      "row": 1939
+    },
+    "BEA8658": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN BANDAR UTAMA DAMANSARA (2)",
+      "row": 1942
+    },
+    "BEA8659": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN BANDAR SRI DAMANSARA 1",
+      "row": 1943
+    },
+    "BEA8661": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN LEMBAH SUBANG",
+      "row": 1945
+    },
+    "BEA8666": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN SEKSYEN 8 KOTA DAMANSARA",
+      "row": 1950
+    },
+    "BEA8669": {
+      "category": "KT6",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "KOLEJ TINGKATAN ENAM PETALING JAYA",
+      "row": 1952
+    },
+    "BEB8651": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN ASSUNTA",
+      "row": 1996
+    },
+    "BEB8652": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN (L) BUKIT BINTANG",
+      "row": 1997
+    },
+    "BEB8653": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN KATHOLIK",
+      "row": 1998
+    },
+    "BEB8654": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN LA SALLE PJ",
+      "row": 1999
+    },
+    "BEB8655": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN (P) SRI AMAN",
+      "row": 2000
+    },
+    "BEB8656": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN TAMAN SEA",
+      "row": 2001
+    },
+    "BEB8657": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN SULTAN ABDUL SAMAD",
+      "row": 2002
+    },
+    "BEB8658": {
+      "category": "SMK",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH MENENGAH KEBANGSAAN (P) TMN PETALING",
+      "row": 2003
+    },
+    "BBD8471": {
+      "category": "SJKT",
+      "district": "PPD PETALING UTAMA",
+      "registryName": "SEKOLAH JENIS KEBANGSAAN (TAMIL) PJS 1",
+      "verification": {
+        "method": "owner-confirmed",
+        "date": "2026-10-29",
+        "note": "Pemilik sistem mengesahkan kategori SJKT secara langsung."
+      },
+      "source": {
+        "title": "Pengesahan pemilik sistem",
+        "asOf": "2026-10-29"
+      }
+    }
+  }
+}

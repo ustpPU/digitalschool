@@ -1,0 +1,36 @@
+import React,{memo,useMemo} from 'react';
+import {Search,ArrowUpRight,ChevronRight,School,X,ArrowDownWideNarrow,Info} from 'lucide-react';
+import MeasureSwitch from './MeasureSwitch.jsx';
+import {exploreSchools,categoryOptions,categoryLabel,UNKNOWN_CATEGORY,metric,formatRate,MEASURES,sortMetric} from '../data/explorer.js';
+export const shortName=n=>n.replace('SEKOLAH JENIS KEBANGSAAN (CINA)','SJKC').replace('SEKOLAH JENIS KEBANGSAAN (TAMIL)','SJKT').replace('SEKOLAH MENENGAH KEBANGSAAN','SMK').replace('SEKOLAH KEBANGSAAN','SK').split(' ').map(w=>/^(SK|SMK|SJKC|SJKT|KT6|PJ|PJS|RRI|USJ|\(L\)|\(P\))$/.test(w)?w:w.toLowerCase().replace(/(^|[-(])([a-z])/g,(_,a,b)=>a+b.toUpperCase())).join(' ');
+export function RateBar({school,kind,label}) {
+  const m=metric(school,kind);
+  return <div className={`explorer-rate ${kind}`}><div><span>{label}</span><strong>{formatRate(m?.rate)}</strong></div><div className="rate-track" aria-hidden="true">{m&&<i style={{width:`${m.rate*100}%`}}/>}</div>{!m&&<small>Data tidak tersedia</small>}</div>;
+}
+const SchoolRow=memo(function SchoolRow({school,onOpen,highlightTop,measures}) {
+  return <li className="performance-item"><button className="performance-row" onClick={()=>onOpen(school)} aria-label={`Buka profil sekolah: ${school.name}, ${school.code}. Murid aktif ${formatRate(metric(school,'students')?.rate)}, guru aktif ${formatRate(metric(school,'teachers')?.rate)}, AI Tools Guru ${formatRate(metric(school,'ai')?.rate)}.`}>
+    <span className={`position ${highlightTop&&school.position!=null&&school.position<=3?'leading':''}`}>{school.position==null?'—':String(school.position).padStart(2,'0')}</span>
+    <span className="performance-identity"><strong>{shortName(school.name)}</strong><span><span className="school-code">{school.code}</span><i/> <span>{categoryLabel(school.category)}</span></span></span>
+    <span className="performance-rates">{measures.map(m=><RateBar key={m.key} school={school} kind={m.key} label={m.label}/>)}</span>
+    <span className="row-affordance" aria-hidden="true"><ChevronRight size={17}/></span>
+  </button></li>;
+});
+export default function SchoolExplorer({schools,period,registry,query,setQuery,category,setCategory,sort,setSort,onOpen,onMethod}) {
+  const rows=useMemo(()=>exploreSchools(schools,{query,category,sort}),[schools,query,category,sort]);
+  const categories=useMemo(()=>categoryOptions(schools),[schools]);
+  const unverified=schools.filter(s=>s.category===UNKNOWN_CATEGORY),isNameSort=sort.startsWith('name');
+  const measures=useMemo(()=>{const key=sortMetric(sort);return [...MEASURES.filter(m=>m.key===key),...MEASURES.filter(m=>m.key!==key)]},[sort]);
+  const reset=()=>{setQuery('');setCategory('all');setSort('students-desc')};
+  return <section className="school-explorer" aria-labelledby="explorer-title">
+    <div className="explorer-heading"><div><div className="eyebrow"><span/> KENALI SEKOLAH DAERAH</div><h1 id="explorer-title">Teroka sekolah<span>.</span></h1><p>Cari sekolah anda dan lihat penglibatan Murid, Guru dan AI Tools Guru.</p></div><div className="explorer-period"><span className="snapshot-dot"/><span>TEMPOH LAPORAN<strong>{period.label}</strong></span></div></div>
+    <div className="explorer-summary"><span className="district-count"><School size={16}/><b>{schools.length}</b> sekolah di Petaling Utama</span><span className="summary-divider"/><span><i className="metric-dot blue"/> Murid aktif</span><span><i className="metric-dot mint"/> Guru aktif</span><span><i className="metric-dot purple"/> AI Tools Guru</span></div>
+    <p className="metadata-note">Susun kedudukan mengikut — ukuran dipilih dipaparkan dahulu.</p>
+    <MeasureSwitch label="Susun mengikut ukuran" value={sortMetric(sort)} onChange={key=>setSort(`${key}-${sort.endsWith('-asc')&&!sort.startsWith('name')?'asc':'desc'}`)}/><div className="explorer-toolbar"><label className="explorer-search"><Search size={19}/><input aria-label="Cari sekolah" placeholder="Cari nama atau kod sekolah…" value={query} onChange={e=>setQuery(e.target.value)}/>{query&&<button aria-label="Kosongkan carian" onClick={()=>setQuery('')}><X size={16}/></button>}</label><label className="explorer-sort"><ArrowDownWideNarrow size={16}/><span className="sr-only">Susunan sekolah</span><select aria-label="Susunan sekolah" value={sort} onChange={e=>setSort(e.target.value)}><option value="students-desc">Murid aktif · tertinggi</option><option value="students-asc">Murid aktif · terendah</option><option value="teachers-desc">Guru aktif · tertinggi</option><option value="teachers-asc">Guru aktif · terendah</option><option value="ai-desc">AI Tools Guru · tertinggi</option><option value="ai-asc">AI Tools Guru · terendah</option><option value="name-asc">Nama sekolah · A–Z</option><option value="name-desc">Nama sekolah · Z–A</option></select></label></div>
+    <div className="category-filters" aria-label="Kategori sekolah"><button className={category==='all'?'selected':''} aria-pressed={category==='all'} onClick={()=>setCategory('all')}>Semua sekolah <span>{schools.length}</span></button>{categories.map(c=><button key={c} className={category===c?'selected':''} aria-pressed={category===c} onClick={()=>setCategory(c)}>{categoryLabel(c)} <span>{schools.filter(s=>s.category===c).length}</span></button>)}</div>
+    <p className="metadata-note category-provenance">Kategori sekolah{unverified.length>0&&<> · Belum disahkan: {unverified.map((s,i)=><React.Fragment key={s.code}>{i>0&&", "}<button onClick={()=>onOpen(s)}>{shortName(s.name)} ({s.code})</button></React.Fragment>)}</>} <button onClick={onMethod}>Sumber <ArrowUpRight size={11}/></button></p>
+    <div className="explorer-list-meta"><p aria-live="polite" aria-atomic="true"><b>{rows.length}</b> {query||category!=='all'?`daripada ${schools.length} sekolah`:'sekolah'} <span>·</span> {isNameSort?'Susunan mengikut nama':`Kedudukan mengikut kadar ${MEASURES.find(m=>m.key===sortMetric(sort)).label} aktif`}</p><span>Klik untuk profil sekolah <ArrowUpRight size={13}/></span></div>
+    <div className="performance-list"><div className="performance-columns" aria-hidden="true"><span>{isNameSort?'NO.':'KED.'}</span><span>SEKOLAH</span>{measures.map((m,i)=><span key={m.key} className={i===0?"primary-measure":""}><i className="metric-dot" style={{background:m.color}}/>{m.label}{m.key!=="ai"?" aktif":""}</span>)}<span/></div><ol aria-label="Senarai prestasi sekolah">{rows.map(s=><SchoolRow key={s.code} measures={measures} school={s} onOpen={onOpen} highlightTop={!isNameSort&&sort.endsWith('-desc')}/>)}</ol>{!rows.length&&<div className="explorer-empty"><Search size={29}/><h3>Tiada sekolah sepadan</h3><p>Cuba nama atau kod yang lain, atau kosongkan penapis.</p><button className="outline" onClick={reset}>Kosongkan carian & penapis</button></div>}</div>
+    <div className="explorer-footnotes"><p>{isNameSort?'Nombor menunjukkan susunan nama dalam kategori dipilih.':'Kedudukan dalam kategori dipilih; carian mengekalkannya. Kadar sama berkongsi kedudukan; nama dan kod menentukan susunan.'} Kadar dipaparkan kepada dua tempat perpuluhan, kedudukan menggunakan kadar penuh.</p><button onClick={onMethod}><Info size={13}/> Sumber & kaedah</button></div>
+
+  </section>;
+}

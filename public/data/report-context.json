@@ -1,0 +1,17 @@
+{
+  "applications": {
+    "scope": "Selangor",
+    "audience": "Murid dan guru",
+    "scopeBasis": "Disahkan oleh pemilik laporan dalam arahan 29 Oktober 2026.",
+    "sourceSheet": "Aplikasi (Murid dan Guru)",
+    "measure": "PENGGUNA AKTIF",
+    "denominatorAvailable": false,
+    "schoolBreakdownAvailable": false,
+    "audienceBreakdownAvailable": false
+  },
+  "ai": {
+    "counts": "Guru and AI Tools have equal active and total counts in all 85 district rows.",
+    "identities": "Unknown: no individual user IDs are present.",
+    "aggregation": "Analyze separately; do not sum as verified unique people."
+  }
+}
