@@ -7,7 +7,14 @@ const signed=n=>n==null?'—':`${n>0?'+':''}${n.toFixed(2)}`;
 export default function SchoolDNA({school,data,manifest,registry,compared,compareFull,onClose,onCompare,onShowCompare}) {
   const [tab,setTab]=useState('overview'),[history,setHistory]=useState([]),[historyError,setHistoryError]=useState(false),[loading,setLoading]=useState(false);
   const ranks=useMemo(()=>Object.fromEntries(['students','teachers'].map(key=>[key,districtRank(data.schools,school.code,key)])),[data,school.code]);
-  const printProfile=()=>window.print();
+  const printProfile=()=>{
+    const previousTitle=document.title;
+    const schoolName=shortName(school.name).replace(/[\\/:*?"<>|]/g,'').trim();
+    const restore=()=>{document.title=previousTitle;window.removeEventListener('afterprint',restore)};
+    document.title=`PU Insight - ${school.code} - ${schoolName} - ${data.period.start}_${data.period.end}`;
+    window.addEventListener('afterprint',restore,{once:true});
+    try{window.print()}catch(error){restore();throw error}
+  };
   useEffect(()=>{
     if(tab!=='history')return;
     let active=true;const controller=new AbortController();
