@@ -1,13 +1,14 @@
-import React,{useState,useEffect,useMemo,useCallback,useRef,lazy,Suspense} from 'react';
+import React,{useState,useEffect,useMemo,useCallback,useRef} from 'react';
 import {createRoot} from 'react-dom/client';
 import {BarChart3,ArrowUpRight,ArrowRight,Grid2X2,School,Search,X,ChevronRight,Download,Layers,Info,Menu,GitCompareArrows,ScanLine,Check,CalendarDays,ArrowUp,Sparkles,Layers3} from 'lucide-react';
 import './insight.css';
+import AppErrorBoundary from './components/AppErrorBoundary.jsx';
 import SchoolExplorer from './components/SchoolExplorer.jsx';
 import SchoolDNA from './components/SchoolDNA.jsx';
-const SchoolComparison=lazy(()=>import('./components/SchoolComparison.jsx'));
+import SchoolComparison from './components/SchoolComparison.jsx';
 import DistrictOverview from './components/DistrictOverview.jsx';
 import SchoolMatrix from './components/SchoolMatrix.jsx';
-const SchoolQuadrant=lazy(()=>import('./components/SchoolQuadrant.jsx'));
+import SchoolQuadrant from './components/SchoolQuadrant.jsx';
 import AIToolsAnalysis from './components/AIToolsAnalysis.jsx';
 import StateApplications from './components/StateApplications.jsx';
 import InsightStories from './components/InsightStories.jsx';
@@ -44,8 +45,8 @@ function App(){
  {view==='overview'&&<DistrictOverview data={data} schools={schools} onExplore={explore} onOpen={setSelected} onCompare={()=>go('compare')} onStories={()=>go('stories')} onAI={()=>go('ai')} onMethod={()=>setMethod(true)}/>}
  {view==='explorer'&&<SchoolExplorer schools={schools} period={data.period} registry={registry} query={query} setQuery={setQuery} category={type} setCategory={setType} sort={sort} setSort={setSort} onOpen={setSelected} onMethod={()=>setMethod(true)}/>}
  {view==='matrix'&&<SchoolMatrix schools={schools} rows={filtered} controls={controls} onOpen={setSelected} compare={compare} onCompare={toggle} onMethod={()=>setMethod(true)}/>}
- {view==='quadrant'&&<Suspense fallback={<div className="page-loading" role="status">Memuatkan peta…</div>}><SchoolQuadrant schools={schools} rows={filtered} controls={controls} onOpen={setSelected}/></Suspense>}
- {view==='compare'&&<Suspense fallback={<div className="page-loading" role="status">Memuatkan perbandingan…</div>}><SchoolComparison measure={compareMeasure} onMeasure={setCompareMeasure} schools={schools} selected={compare} onSelect={setCompare} onOpen={setSelected} onExplore={()=>explore()}/></Suspense>}
+ {view==='quadrant'&&<SchoolQuadrant schools={schools} rows={filtered} controls={controls} onOpen={setSelected}/>}
+ {view==='compare'&&<SchoolComparison measure={compareMeasure} onMeasure={setCompareMeasure} schools={schools} selected={compare} onSelect={setCompare} onOpen={setSelected} onExplore={()=>explore()}/>}
  {view==='ai'&&<AIToolsAnalysis data={data} schools={schools} onOpen={setSelected} onCompare={()=>{setCompareMeasure('ai');go('compare')}}/>}
  {view==='applications'&&<StateApplications data={data} context={reportContext}/>}
  {view==='stories'&&<InsightStories data={data} manifest={manifest} onExplore={()=>explore()} onQuadrant={()=>{setQuery('');setType('all');go('quadrant')}} onMethod={()=>setMethod(true)} onApplications={()=>go('applications')} onAI={()=>go('ai')} onPeriod={id=>{setPeriod(id);go('overview')}}/>}
@@ -57,4 +58,4 @@ function App(){
  {toast&&<div className="toast" role="status"><Check size={17}/>{toast}<button aria-label="Tutup notis" onClick={()=>setToast('')}><X size={15}/></button></div>}
  </div>;
 }
-createRoot(document.getElementById('root')).render(<App/>);
+createRoot(document.getElementById('root')).render(<AppErrorBoundary><App/></AppErrorBoundary>);
