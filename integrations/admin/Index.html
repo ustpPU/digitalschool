@@ -38,6 +38,86 @@
   const run = (method, args) => new Promise((resolve, reject) => {
     google.script.run.withSuccessHandler(resolve).withFailureHandler(reject)[method](...args);
   });
+  async function districtCsv(file, kind) {
+    const normalize = value => value.trim().replace(/\s+/g, ' ').toUpperCase();
+    const required = ['EMAIL', 'PPD', kind === 'students' ? 'NAMA' : 'NAME',
+      kind === 'students' ? 'KOD SEKOLAH' : 'KODSEKOLAH'];
+    const encode = value => '"' + value.replaceAll('"', '""') + '"';
+    const output = [required.join(',')];
+    let headers, delimiter, indexes, row = '', quoted = false, pendingQuote = false, excluded = 0;
+    const columns = (line, separator) => {
+      const fields = [];
+      let field = '', inside = false;
+      for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+        if (ch === '"') {
+          if (inside && line[i + 1] === '"') { field += '"'; i++; }
+          else inside = !inside;
+        } else if (ch === separator && !inside) {
+          fields.push(field);
+          field = '';
+        } else field += ch;
+      }
+      fields.push(field);
+      return fields;
+    };
+    function accept(line) {
+      line = line.replace(/\r$/, '');
+      if (!headers) {
+        line = line.replace(/^\uFEFF/, '');
+        for (const candidate of [',', ';', '\t']) {
+          const possible = columns(line, candidate).map(normalize);
+          if (required.every(key => possible.includes(key))) {
+            headers = possible;
+            delimiter = candidate;
+            indexes = required.map(key => headers.indexOf(key));
+            break;
+          }
+        }
+        if (!headers) throw new Error('Semak lajur CSV untuk set yang dipilih.');
+        const named = headers.filter(Boolean);
+        if (new Set(named).size !== named.length) throw new Error('Tajuk lajur berulang.');
+        return;
+      }
+      if (!line.trim()) return;
+      const values = columns(line, delimiter);
+      if (!values.some(value => value.trim())) return;
+      const selected = indexes.map(index => values[index] || '');
+      const district = normalize(selected[1]);
+      if (district === 'PETALING UTAMA' || district === 'PPD PETALING UTAMA') {
+        output.push(selected.map(encode).join(','));
+      } else excluded++;
+    }
+    const reader = file.stream().pipeThrough(new TextDecoderStream('utf-8', {fatal:true})).getReader();
+    try {
+      while (true) {
+        const {value, done} = await reader.read();
+        if (done) break;
+        for (const ch of value) {
+          if (pendingQuote) {
+            pendingQuote = false;
+            if (ch === '"') { row += ch; continue; }
+            quoted = false;
+          }
+          if (ch === '"') {
+            if (quoted) pendingQuote = true;
+            else quoted = true;
+          }
+          if (ch === '\n' && !quoted) {
+            accept(row);
+            row = '';
+          } else row += ch;
+        }
+      }
+      if (quoted && !pendingQuote) throw new Error('Petikan CSV tidak ditutup.');
+      if (row) accept(row);
+      if (!headers) throw new Error('Fail CSV kosong.');
+      if (output.length === 1 && excluded) throw new Error('Tiada rekod Petaling Utama dalam fail.');
+      return {csv: output.join('\n'), excluded};
+    } finally {
+      await reader.cancel();
+    }
+  }
   form.addEventListener('change', () => {
     revision++;
     prepared = null;
@@ -53,13 +133,15 @@
     preview.disabled = true;
     status.textContent = 'Menyemak fail…';
     try {
-      if (file.files[0].size > 8 * 1024 * 1024) throw new Error('Pilih CSV sehingga 8 MB.');
-      const args = [kind.value, start.value, end.value || start.value, await file.files[0].text()];
+      const reportKind = kind.value;
+      const first = start.value, last = end.value || first;
+      const filtered = await districtCsv(file.files[0], reportKind);
+      const args = [reportKind, first, last, filtered.csv];
       if (current !== revision) return;
       const result = await run('previewRoster', args);
       if (current !== revision) return;
       status.textContent = result.accepted + ' rekod diterima · ' + result.schools + ' sekolah\n' +
-        result.excluded + ' rekod luar daerah · ' + result.duplicates + ' pendua dikecualikan';
+        (result.excluded + filtered.excluded) + ' rekod luar daerah · ' + result.duplicates + ' pendua dikecualikan';
       prepared = args;
       publish.hidden = false;
     } catch (error) {

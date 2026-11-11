@@ -51,7 +51,7 @@ function prepareRoster_(kind, start, end, csv) {
     Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
   if (!validDate(start) || !validDate(end) || end < start) throw new Error('Semak tarikh laporan.');
   if (typeof csv !== 'string' || !csv.trim() || csv.length > MAX_CSV_CHARS) {
-    throw new Error('Pilih CSV sehingga 8 MB.');
+    throw new Error('Data Petaling Utama selepas tapisan masih terlalu besar untuk dihantar.');
   }
   const clean = csv.replace(/^\uFEFF/, '');
   const normalize = value => String(value || '').trim().replace(/\s+/g, ' ').toUpperCase();
