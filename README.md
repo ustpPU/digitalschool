@@ -87,6 +87,8 @@ Tanpa `VITE_ROSTER_URL`, profil hanya memaparkan data agregat. GitHub Pages tida
 
 ### Ruang Admin dengan akaun CM4
 
-Pautan **Ruang Admin** di footer membuka pengimport pada Mac yang menjalankan pelayan tempatan. Gunakan Google Cloud OAuth client jenis **Desktop app** dan aktifkan Google Drive API. Simpan fail konfigurasi klien di luar repositori. Mulakan dengan `PU_GOOGLE_CLIENT_FILE=/laluan/ke/client.json PU_ROSTER_FOLDER_ID=id-folder-terhad python3 scripts/import_admin.py`. Akaun Google CM4 mesti dibenarkan oleh tetapan aplikasi OAuth. Pengimport memeriksa e-mel Google yang disahkan di pelayan dan menyimpan sesi dalam memori.
+Pautan **Ruang Admin** di footer membuka Google Apps Script peribadi untuk Set 2 dan Set 3. Penerbitan menggunakan **Execute as me** dan **Only myself** daripada akaun CM4. Fungsi pelayan turut menyemak alamat e-mel CM4 sebelum memaparkan borang, memproses pratonton atau menulis ke Google Drive. Jika pelayar sedang menggunakan beberapa akaun Google, gunakan profil pelayar berasingan untuk CM4.
 
-Butang **Terbitkan ke Google Drive** menghantar JSON Set 2 atau Set 3 yang telah dipratonton terus ke folder PKG School Insight. Google meminta skop Drive penuh untuk akses ke folder sedia ada. Kod penerbitan menggunakan ID folder daripada konfigurasi tempatan. Set 1 kekal dalam aliran snapshot GitHub Pages.
+Sumber berada di `integrations/admin/`. Untuk menerbitkan daripada dua fail sumber, salin `Code.gs` ke Apps Script dan `Index.html` sebagai fail HTML bernama `Index`. Tetapkan sifat skrip `ROSTER_FOLDER_ID` kepada folder terhad yang sama dengan penyambung bacaan. Versi pertama menyertakan HTML terus dalam `Code.gs`; kedua-dua bentuk memaparkan borang yang sama. Senarai kod sekolah datang daripada snapshot Petaling Utama dan perlu dikemas kini jika liputan sekolah berubah.
+
+Borang web menerima CSV sehingga 8 MB. Pratonton tidak menulis ke Drive. Penerbitan menyimpan JSON Set 2 atau Set 3 dalam folder terhad; format senarai kekal serasi dengan penyambung bacaan. Set 1 kekal dalam aliran snapshot GitHub Pages.

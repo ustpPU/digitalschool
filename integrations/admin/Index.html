@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:#142846;font:16px/1.5 system-ui,sans-serif}
+    main{max-width:48rem;margin:auto;padding:clamp(18px,5vw,54px) 18px}h1{margin:.45rem 0 0;font-size:clamp(1.8rem,6vw,2.7rem)}
+    p{margin:.35rem 0 1.5rem;color:#485d78}a{color:#194b9d;text-underline-offset:3px}
+    form{background:#fff;border:1px solid #dce4ef;border-radius:18px;padding:clamp(16px,4vw,30px);display:grid;gap:16px}
+    label{display:grid;gap:6px;font-weight:600;min-width:0}.dates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    input,select,button{font:inherit;min-height:46px;border:1px solid #a9b8cc;border-radius:9px;padding:9px 12px;min-width:0}
+    input,select{width:100%;background:#fff;color:#142846}button{cursor:pointer;background:#2055b1;color:white;border-color:#2055b1;font-weight:650}
+    button:disabled{opacity:.55;cursor:wait}button.secondary{background:#eef4ff;color:#194b9d}.actions{display:flex;flex-wrap:wrap;gap:10px}
+    :focus-visible{outline:3px solid #5687e7;outline-offset:3px}output{white-space:pre-line;overflow-wrap:anywhere}output:empty{display:none}
+    @media(max-width:480px){.actions button{width:100%}.dates{grid-template-columns:minmax(0,1fr)}}
+  </style>
+</head>
+<body>
+<main>
+  <a href="https://ustppu.github.io/digitalschool/">← PU Insight</a>
+  <h1>Ruang Admin</h1>
+  <p>Akaun Google CM4 disahkan. Pilih CSV dan semak hasil tapisan sebelum terbitkan.</p>
+  <form>
+    <label>Set laporan<select name="kind"><option value="students">Set 2 · Murid tidak aktif</option><option value="teachers">Set 3 · Guru belum guna AI Tools</option></select></label>
+    <div class="dates"><label>Tarikh mula<input name="start" type="date" required></label><label>Tarikh tamat<input name="end" type="date"></label></div>
+    <label>Fail CSV<input name="file" type="file" accept=".csv,text/csv" required></label>
+    <div class="actions"><button type="submit">Pratonton import</button><button type="button" class="secondary" id="publish" hidden>Terbitkan ke Google Drive</button></div>
+    <output aria-live="polite"></output>
+  </form>
+</main>
+<script>
+  const form = document.querySelector('form');
+  const preview = form.querySelector('button[type=submit]');
+  const publish = document.querySelector('#publish');
+  const status = form.querySelector('output');
+  let prepared, revision = 0;
+  const run = (method, args) => new Promise((resolve, reject) => {
+    google.script.run.withSuccessHandler(resolve).withFailureHandler(reject)[method](...args);
+  });
+  form.addEventListener('change', () => {
+    revision++;
+    prepared = null;
+    publish.hidden = true;
+    status.textContent = '';
+  });
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    const current = ++revision;
+    const {kind, start, end, file} = form.elements;
+    prepared = null;
+    publish.hidden = true;
+    preview.disabled = true;
+    status.textContent = 'Menyemak fail…';
+    try {
+      if (file.files[0].size > 8 * 1024 * 1024) throw new Error('Pilih CSV sehingga 8 MB.');
+      const args = [kind.value, start.value, end.value || start.value, await file.files[0].text()];
+      if (current !== revision) return;
+      const result = await run('previewRoster', args);
+      if (current !== revision) return;
+      status.textContent = result.accepted + ' rekod diterima · ' + result.schools + ' sekolah\n' +
+        result.excluded + ' rekod luar daerah · ' + result.duplicates + ' pendua dikecualikan';
+      prepared = args;
+      publish.hidden = false;
+    } catch (error) {
+      if (current === revision) status.textContent = error.message || 'Semakan gagal. Cuba semula.';
+    } finally {
+      preview.disabled = false;
+    }
+  });
+  publish.addEventListener('click', async () => {
+    if (!prepared) return;
+    const current = revision;
+    publish.disabled = true;
+    preview.disabled = true;
+    status.textContent = 'Menghantar ke Google Drive…';
+    try {
+      const result = await run('publishRoster', prepared);
+      if (current !== revision) return;
+      status.textContent = result.message;
+      publish.hidden = true;
+      prepared = null;
+    } catch (error) {
+      if (current === revision) status.textContent = error.message || 'Penerbitan gagal. Cuba semula.';
+    } finally {
+      publish.disabled = false;
+      preview.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
