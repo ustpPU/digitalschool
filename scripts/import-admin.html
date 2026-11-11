@@ -1,16 +1,21 @@
 <!doctype html><html lang="ms"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Import PU Insight</title>
-<style>body{max-width:860px;margin:32px auto;padding:0 16px;font:16px system-ui;color:#172b46;background:#f5f7fb}form{background:white;border:1px solid #d9e3ee;border-radius:12px;padding:20px;margin:16px 0}label{display:inline-grid;gap:5px;margin:6px 10px 8px 0}button{padding:9px 14px;border:1px solid #bacbe5;background:#edf3ff;color:#163a77;border-radius:7px;cursor:pointer}input,select{max-width:100%;font:inherit}output{display:block;margin:10px 0;white-space:pre-line}</style>
-<h1>Import data PU Insight</h1><p>Pilih set, fail dan tempoh laporan. Semak hasil tapisan Petaling Utama sebelum simpan.</p>
+<style>body{max-width:860px;margin:32px auto;padding:0 16px;font:16px system-ui;color:#172b46;background:#f5f7fb}form{background:white;border:1px solid #d9e3ee;border-radius:12px;padding:20px;margin:16px 0}label{display:inline-grid;gap:5px;margin:6px 10px 8px 0}button{padding:9px 14px;border:1px solid #bacbe5;background:#edf3ff;color:#163a77;border-radius:7px;cursor:pointer}input,select{max-width:100%;font:inherit}output{display:block;margin:10px 0;white-space:pre-line}*{box-sizing:border-box}header{display:flex;justify-content:space-between;align-items:start;gap:16px}h1{margin:0;font-size:clamp(1.6rem,5vw,2.25rem)}h2{font-size:1.15rem;margin:0 0 12px}button{min-height:44px;font:inherit;font-weight:600}button:disabled{opacity:.65;cursor:wait}input,select{min-height:44px;min-width:0;width:100%}.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.fields label{margin:0}.file{grid-column:1/-1}.actions{margin-top:16px}output{overflow-wrap:anywhere}@media(max-width:620px){body{margin:20px auto}form{padding:15px}.fields{grid-template-columns:repeat(2,minmax(0,1fr))}.period{grid-column:1/-1}.actions button,form>button{width:100%}header{flex-wrap:wrap}}@media(max-width:360px){.fields{grid-template-columns:minmax(0,1fr)}}</style>
+<header><h1>Import data PU Insight</h1><button id="logout" type="button">Log keluar</button></header><p>Pilih set, fail dan tempoh laporan. Semak hasil tapisan Petaling Utama sebelum simpan.</p>
 <main id="forms"></main>
 <script type="module">
 const token='__TOKEN__';
 const headers={'X-Import-Token':token};
 const response=await fetch('/periods',{method:'POST',headers});
 const manifest=await response.json();
+document.querySelector('#logout').onclick=async()=>{
+  await fetch('/logout',{method:'POST',headers});
+  location.replace('/');
+};
+if(!response.ok){location.replace('/');throw new Error('Sesi tamat.')}
 const sets=[['summary','Set 1 · Ringkasan sekolah','.csv,.xlsx'],['students','Set 2 · Murid tidak aktif','.csv'],['teachers','Set 3 · Guru belum guna AI Tools','.csv']];
 for(const [kind,label,accept] of sets){
   const form=document.createElement('form');
-  form.innerHTML=`<h2>${label}</h2><label>Tempoh sedia ada<select name="period"><option value="">Pilih tarikh sendiri</option></select></label><label>Tarikh mula<input name="start" type="date" required></label><label>Tarikh tamat<input name="end" type="date"></label><label>Fail<input name="file" type="file" accept="${accept}" required></label><div><button>Pratonton import</button></div><output aria-live="polite"></output><button type="button" hidden></button>`;
+  form.innerHTML=`<h2>${label}</h2><div class="fields"><label class="period">Tempoh sedia ada<select name="period"><option value="">Pilih tarikh sendiri</option></select></label><label>Tarikh mula<input name="start" type="date" required></label><label>Tarikh tamat<input name="end" type="date"></label><label class="file">Fail<input name="file" type="file" accept="${accept}" required></label></div><div class="actions"><button>Pratonton import</button></div><output aria-live="polite"></output><button type="button" hidden></button>`;
   const {period,start,end,file}=form.elements;
   const output=form.querySelector('output'), action=form.querySelector('button[hidden]');
   for(const entry of manifest.snapshots)period.add(new Option(entry.label,entry.id));
@@ -27,33 +32,38 @@ for(const [kind,label,accept] of sets){
     output.textContent='Menyemak fail…';
     const previewButton=form.querySelector('button');
     previewButton.disabled=true;
+    const controller=new AbortController();
+    const timer=setTimeout(()=>controller.abort(),120000);
     try{
-      const result=await fetch('/preview?'+params,{method:'POST',headers,body:input}).then(r=>r.json());
+      const result=await fetch('/preview?'+params,{method:'POST',headers,body:input,signal:controller.signal}).then(r=>r.json());
       if(current!==revision)return;
       if(result.error)throw new Error(result.error);
       const c=result.counts;
       output.textContent=`${c.accepted} rekod diterima · ${c.schools} sekolah\n${c.excluded} rekod luar daerah · ${c.duplicates} pendua dikecualikan`;
       prepared=result;
-      action.textContent=kind==='summary'?'Simpan ringkasan tempatan':'Muat turun JSON untuk Drive';
+      action.textContent=kind==='summary'?'Simpan ringkasan tempatan':'Terbitkan ke Google Drive';
       action.hidden=false;
-    }catch(error){if(current===revision)output.textContent=error.message}
-    finally{previewButton.disabled=false}
+    }catch(error){if(current===revision)output.textContent=error.name==='AbortError'?'Semakan tamat masa. Cuba semula.':error.message}
+    finally{clearTimeout(timer);previewButton.disabled=false}
   };
   action.onclick=async()=>{
     if(!prepared)return;
-    if(kind==='summary'){
-      const result=await fetch('/save-summary?'+new URLSearchParams({token:prepared.token}),{method:'POST',headers}).then(r=>r.json());
+    const current=revision;
+    action.disabled=true;
+    const route=kind==='summary'?'/save-summary':'/publish-roster';
+    const params=new URLSearchParams({token:prepared.token,kind});
+    output.textContent=kind==='summary'?'Menyimpan ringkasan…':'Menghantar ke Google Drive…';
+    try{
+      const response=await fetch(route+'?'+params,{method:'POST',headers});
+      if(response.status===403){location.replace('/');return}
+      const result=await response.json();
+      if(current!==revision)return;
       output.textContent=result.message||result.error;
-      action.hidden=!result.error;
-      return;
-    }
-    const report=prepared.report;
-    const url=URL.createObjectURL(new Blob([JSON.stringify(report)],{type:'application/json'}));
-    const link=document.createElement('a');
-    link.href=url;
-    link.download=`${kind}-${report.period.end}_${report.period.start}.json`;
-    link.click();
-    setTimeout(()=>URL.revokeObjectURL(url),1000);
+      action.hidden=response.ok;
+      if(response.ok)prepared=null;
+    }catch{
+      if(current===revision)output.textContent='Sambungan terputus. Semak dan cuba semula.';
+    }finally{action.disabled=false}
   };
   document.querySelector('main').append(form);
 }

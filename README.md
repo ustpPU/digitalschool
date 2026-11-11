@@ -84,3 +84,9 @@ Jalankan `python3 scripts/import_admin.py` dalam checkout ini dan buka `http://1
 4. Selepas penyediaan, muat naik JSON baharu ke folder tersebut. Pelayan memilih tarikh tamat terkini bagi setiap set, diikuti tarikh mula dan masa kemas kini jika tempoh sama. Senarai lama boleh dipadam dari folder oleh pemilik. Perubahan mungkin mengambil sehingga beberapa minit akibat cache pelayan dan pelayar. Ketiadaan kod sekolah dalam fail tidak dianggap sebagai bukti sifar.
 
 Tanpa `VITE_ROSTER_URL`, profil hanya memaparkan data agregat. GitHub Pages tidak menyediakan pelayan import atau akses ke Drive terhad.
+
+### Ruang Admin dengan akaun CM4
+
+Pautan **Ruang Admin** di footer membuka pengimport pada Mac yang menjalankan pelayan tempatan. Gunakan Google Cloud OAuth client jenis **Desktop app** dan aktifkan Google Drive API. Simpan fail konfigurasi klien di luar repositori. Mulakan dengan `PU_GOOGLE_CLIENT_FILE=/laluan/ke/client.json PU_ROSTER_FOLDER_ID=id-folder-terhad python3 scripts/import_admin.py`. Akaun Google CM4 mesti dibenarkan oleh tetapan aplikasi OAuth. Pengimport memeriksa e-mel Google yang disahkan di pelayan dan menyimpan sesi dalam memori.
+
+Butang **Terbitkan ke Google Drive** menghantar JSON Set 2 atau Set 3 yang telah dipratonton terus ke folder PKG School Insight. Google meminta skop Drive penuh untuk akses ke folder sedia ada. Kod penerbitan menggunakan ID folder daripada konfigurasi tempatan. Set 1 kekal dalam aliran snapshot GitHub Pages.
