@@ -15,4 +15,16 @@ test('district counts reconcile to independently checked XLSX control totals',()
  assert.notEqual(d.summary.students.rate,mean,'district rate must not be unweighted school average');
 });
 test('equal AI and Guru counts are preserved without inflating counts',()=>{for(const s of d.schools){assert.equal(s.teachers.active,s.ai.active);assert.equal(s.teachers.total,s.ai.total)}assert.equal(d.audit.teacherAiIdenticalCounts,85)});
-test('only a single period is advertised and applications remain separate from district metrics',()=>{const m=JSON.parse(fs.readFileSync(new URL('../public/data/manifest.json',import.meta.url)));assert.equal(m.snapshots.length,1);assert.equal(m.snapshots[0].id,d.id);assert.match(d.applicationContext.scope,/bukan metrik daerah/);assert.equal(d.audit.issues.length,0)});
+test('manifest resolves unique report periods and applications remain separate from district metrics',()=>{
+ const manifest=JSON.parse(fs.readFileSync(new URL('../public/data/manifest.json',import.meta.url)));
+ assert.ok(manifest.snapshots.length);
+ assert.equal(new Set(manifest.snapshots.map(report=>report.id)).size,manifest.snapshots.length);
+ for(const report of manifest.snapshots){
+  const snapshot=JSON.parse(fs.readFileSync(new URL('../public/data/'+report.file,import.meta.url)));
+  assert.equal(snapshot.id,report.id);
+  assert.equal(snapshot.district,'PETALING UTAMA');
+  assert.equal(snapshot.id,snapshot.period.start+'_'+snapshot.period.end);
+ }
+ assert.match(d.applicationContext.scope,/bukan metrik daerah/);
+ assert.equal(d.audit.issues.length,0);
+});

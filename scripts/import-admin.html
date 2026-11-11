@@ -1,0 +1,60 @@
+<!doctype html><html lang="ms"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Import PU Insight</title>
+<style>body{max-width:860px;margin:32px auto;padding:0 16px;font:16px system-ui;color:#172b46;background:#f5f7fb}form{background:white;border:1px solid #d9e3ee;border-radius:12px;padding:20px;margin:16px 0}label{display:inline-grid;gap:5px;margin:6px 10px 8px 0}button{padding:9px 14px;border:1px solid #bacbe5;background:#edf3ff;color:#163a77;border-radius:7px;cursor:pointer}input,select{max-width:100%;font:inherit}output{display:block;margin:10px 0;white-space:pre-line}</style>
+<h1>Import data PU Insight</h1><p>Pilih set, fail dan tempoh laporan. Semak hasil tapisan Petaling Utama sebelum simpan.</p>
+<main id="forms"></main>
+<script type="module">
+const token='__TOKEN__';
+const headers={'X-Import-Token':token};
+const response=await fetch('/periods',{method:'POST',headers});
+const manifest=await response.json();
+const sets=[['summary','Set 1 · Ringkasan sekolah','.csv,.xlsx'],['students','Set 2 · Murid tidak aktif','.csv'],['teachers','Set 3 · Guru belum guna AI Tools','.csv']];
+for(const [kind,label,accept] of sets){
+  const form=document.createElement('form');
+  form.innerHTML=`<h2>${label}</h2><label>Tempoh sedia ada<select name="period"><option value="">Pilih tarikh sendiri</option></select></label><label>Tarikh mula<input name="start" type="date" required></label><label>Tarikh tamat<input name="end" type="date"></label><label>Fail<input name="file" type="file" accept="${accept}" required></label><div><button>Pratonton import</button></div><output aria-live="polite"></output><button type="button" hidden></button>`;
+  const {period,start,end,file}=form.elements;
+  const output=form.querySelector('output'), action=form.querySelector('button[hidden]');
+  for(const entry of manifest.snapshots)period.add(new Option(entry.label,entry.id));
+  period.onchange=()=>{if(period.value)[start.value,end.value]=period.value.split('_')};
+  let prepared, revision=0;
+  form.addEventListener('change',()=>{action.hidden=true;prepared=null;revision++});
+  form.onsubmit=async event=>{
+    event.preventDefault();
+    prepared=null;
+    action.hidden=true;
+    const current=++revision;
+    const input=file.files[0];
+    const params=new URLSearchParams({kind,start:start.value,end:end.value||start.value,filename:input.name});
+    output.textContent='Menyemak fail…';
+    const previewButton=form.querySelector('button');
+    previewButton.disabled=true;
+    try{
+      const result=await fetch('/preview?'+params,{method:'POST',headers,body:input}).then(r=>r.json());
+      if(current!==revision)return;
+      if(result.error)throw new Error(result.error);
+      const c=result.counts;
+      output.textContent=`${c.accepted} rekod diterima · ${c.schools} sekolah\n${c.excluded} rekod luar daerah · ${c.duplicates} pendua dikecualikan`;
+      prepared=result;
+      action.textContent=kind==='summary'?'Simpan ringkasan tempatan':'Muat turun JSON untuk Drive';
+      action.hidden=false;
+    }catch(error){if(current===revision)output.textContent=error.message}
+    finally{previewButton.disabled=false}
+  };
+  action.onclick=async()=>{
+    if(!prepared)return;
+    if(kind==='summary'){
+      const result=await fetch('/save-summary?'+new URLSearchParams({token:prepared.token}),{method:'POST',headers}).then(r=>r.json());
+      output.textContent=result.message||result.error;
+      action.hidden=!result.error;
+      return;
+    }
+    const report=prepared.report;
+    const url=URL.createObjectURL(new Blob([JSON.stringify(report)],{type:'application/json'}));
+    const link=document.createElement('a');
+    link.href=url;
+    link.download=`${kind}-${report.period.end}_${report.period.start}.json`;
+    link.click();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+  };
+  document.querySelector('main').append(form);
+}
+</script></html>

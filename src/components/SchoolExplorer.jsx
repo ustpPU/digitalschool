@@ -2,7 +2,8 @@ import React,{memo,useMemo} from 'react';
 import {Search,ArrowUpRight,ChevronRight,School,X,ArrowDownWideNarrow,Info} from 'lucide-react';
 import MeasureSwitch from './MeasureSwitch.jsx';
 import {exploreSchools,categoryOptions,categoryLabel,UNKNOWN_CATEGORY,metric,formatRate,MEASURES,sortMetric} from '../data/explorer.js';
-export const shortName=n=>n.replace('SEKOLAH JENIS KEBANGSAAN (CINA)','SJKC').replace('SEKOLAH JENIS KEBANGSAAN (TAMIL)','SJKT').replace('SEKOLAH MENENGAH KEBANGSAAN','SMK').replace('SEKOLAH KEBANGSAAN','SK').split(' ').map(w=>/^(SK|SMK|SJKC|SJKT|KT6|PJ|PJS|RRI|USJ|\(L\)|\(P\))$/.test(w)?w:w.toLowerCase().replace(/(^|[-(])([a-z])/g,(_,a,b)=>a+b.toUpperCase())).join(' ');
+import {normalizeSearch, shortName} from '../data/school-search.js';
+export {shortName};
 export function RateBar({school,kind,label}) {
   const m=metric(school,kind);
   return <div className={`explorer-rate ${kind}`}><div><span>{label}</span><strong>{formatRate(m?.rate)}</strong></div><div className="rate-track" aria-hidden="true">{m&&<i style={{width:`${m.rate*100}%`}}/>}</div>{!m&&<small>Data tidak tersedia</small>}</div>;
@@ -16,7 +17,8 @@ const SchoolRow=memo(function SchoolRow({school,onOpen,highlightTop,measures}) {
   </button></li>;
 });
 export default function SchoolExplorer({schools,period,registry,query,setQuery,category,setCategory,sort,setSort,onOpen,onMethod}) {
-  const rows=useMemo(()=>exploreSchools(schools,{query,category,sort}),[schools,query,category,sort]);
+  const ranked=useMemo(()=>exploreSchools(schools,{category,sort}).map(school=>({school,text:normalizeSearch(`${school.name} ${shortName(school.name)} ${school.code}`)})),[schools,category,sort]);
+  const rows=useMemo(()=>{const term=normalizeSearch(query);return ranked.filter(item=>item.text.includes(term)).map(item=>item.school)},[ranked,query]);
   const categories=useMemo(()=>categoryOptions(schools),[schools]);
   const unverified=schools.filter(s=>s.category===UNKNOWN_CATEGORY),isNameSort=sort.startsWith('name');
   const measures=useMemo(()=>{const key=sortMetric(sort);return [...MEASURES.filter(m=>m.key===key),...MEASURES.filter(m=>m.key!==key)]},[sort]);

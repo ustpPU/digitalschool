@@ -67,3 +67,20 @@ Butang **Cetak / Simpan PDF** membuka cetakan pelayar. Pilih **Save as PDF / Sim
 ## Ketahanan selepas deployment
 
 Peta penglibatan dan Banding sekolah diimport bersama aplikasi, supaya tab yang masih terbuka tidak meminta chunk carta lama selepas deployment. Error boundary pada akar menyediakan mesej pemulihan dan tindakan muat semula jika render gagal. Binaan baharu tidak bergantung kepada dynamic import untuk navigasi.
+
+### Import laporan dari Mac
+
+Jalankan `python3 scripts/import_admin.py` dalam checkout ini dan buka `http://127.0.0.1:4174/`. Untuk XLSX, gunakan Python yang mempunyai openpyxl. Pemprosesan fail berlaku pada Mac. Pratonton menerima tarikh tunggal atau tempoh dan menapis PPD Petaling Utama sebelum memproses rekod.
+
+- Set 1 menerima workbook KPM dengan helaian Murid, Guru dan AI Tools (Guru). CSV ringkasan menggunakan `PPD,KODSEKOLAH,NAMASEKOLAH,UKURAN,PENGGUNA AKTIF,TOTAL PENGGUNA`, satu baris bagi setiap kod dan ukuran `students`, `teachers` atau `ai`. Simpan pratonton untuk mengemas kini snapshot dan manifest, kemudian commit dan push **dua fail agregat itu sahaja**. Tempoh berulang menggantikan snapshot tempoh itu. Tempoh baharu menambah sejarah.
+- Set 2 dan 3 menjana JSON yang mengandungi nama, kod sekolah dan tempoh. E-mel digunakan semasa menyemak pendua dalam proses tempatan. Simpan CSV asal dan JSON nama dalam folder Drive terhad. Jangan masukkan kedua-duanya dalam repo atau folder public.
+- Semak angka dan kebenaran pemilik data sebelum menerbitkan senarai nama. Paparan tanpa log masuk memberi pelawat akses kepada nama untuk kod sekolah yang diminta. Pelawat boleh mengulang permintaan untuk sekolah lain.
+
+### Sambungkan folder Drive untuk senarai nama
+
+1. Buat satu folder Drive dengan akses **Restricted** untuk JSON keluaran Set 2 dan 3. Muat naik keluaran dengan nama fail asal yang dijana oleh pengimport.
+2. Dalam projek Google Apps Script pemilik folder, salin `integrations/drive/Code.gs` dan tetapkan Script Property `ROSTER_FOLDER_ID` kepada ID folder terhad. Deploy sebagai Web App, **Execute as me**, akses **Anyone** jika akaun membenarkannya. Uji dahulu dengan fail rekaan dan permintaan `?school=BBB8308` daripada sesi tanpa log masuk.
+3. Tetapkan pemboleh ubah GitHub Actions `VITE_ROSTER_URL` kepada URL `/exec` dan jalankan workflow Publish PU Insight. URL ini bukan kelayakan akses Drive. Sekolah hanya meminta hasil satu kod pada satu masa. Peratus dan carian kekal menggunakan snapshot.
+4. Selepas penyediaan, muat naik JSON baharu ke folder tersebut. Pelayan memilih tarikh tamat terkini bagi setiap set, diikuti tarikh mula dan masa kemas kini jika tempoh sama. Senarai lama boleh dipadam dari folder oleh pemilik. Perubahan mungkin mengambil sehingga beberapa minit akibat cache pelayan dan pelayar. Ketiadaan kod sekolah dalam fail tidak dianggap sebagai bukti sifar.
+
+Tanpa `VITE_ROSTER_URL`, profil hanya memaparkan data agregat. GitHub Pages tidak menyediakan pelayan import atau akses ke Drive terhad.
