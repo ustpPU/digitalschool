@@ -18,8 +18,8 @@ import InsightStories from './components/InsightStories.jsx';
 import {adaptSchools,exploreSchools,UNKNOWN_CATEGORY} from './data/explorer.js';
 const views=[['overview','Utama',BarChart3],['analysis','Analisis Daerah',Layers],['explorer','Teroka sekolah',School],['matrix','Matriks',Grid2X2],['quadrant','Peta penglibatan',ScanLine],['compare','Banding sekolah',GitCompareArrows],['ai','AI Tools guru',Sparkles],['stories','Cerapan data',Layers],['applications','Aplikasi Selangor',Layers3]];
 function App(){
- const [manifest,setManifest]=useState(bundledReports.manifest),[data,setData]=useState(null),[period,setPeriod]=useState(bundledReports.manifest.snapshots[0].id),[err,setErr]=useState(''),[view,setView]=useState(()=>views.some(v=>v[0]===location.hash.slice(1))?location.hash.slice(1):'overview'),[query,setQuery]=useState(''),[type,setType]=useState('all'),[sort,setSort]=useState('students-desc'),[selectedCode,setSelectedCode]=useState(null),[compare,setCompare]=useState([]),[compareMeasure,setCompareMeasure]=useState('all'),[threshold,setThreshold]=useState(50),[mobile,setMobile]=useState(false),[method,setMethodState]=useState(false);
- const returnFocus=useRef(null);
+ const [manifest,setManifest]=useState(bundledReports.manifest),[data,setData]=useState(null),[period,setPeriod]=useState(bundledReports.manifest.snapshots[0].id),[err,setErr]=useState(''),[view,setView]=useState(()=>views.some(v=>v[0]===location.hash.slice(1))?location.hash.slice(1):'overview'),[query,setQuery]=useState(''),[type,setType]=useState('all'),[sort,setSort]=useState('students-desc'),[selectedCode,setSelectedCode]=useState(null),[homeCode,setHomeCode]=useState(''),[compare,setCompare]=useState([]),[compareMeasure,setCompareMeasure]=useState('all'),[threshold,setThreshold]=useState(50),[mobile,setMobile]=useState(false),[method,setMethodState]=useState(false);
+ const returnFocus=useRef(null), homeProfile=useRef(null);
  const setSelected=useCallback(s=>{if(s)returnFocus.current=document.activeElement;setSelectedCode(s?.code??null)},[]);
  const setMethod=useCallback(value=>{if(value)returnFocus.current=document.activeElement;setMethodState(value)},[]);
  const {registry,reportContext}=bundledReports;
@@ -27,6 +27,16 @@ function App(){
  const months=useMemo(()=>monthlySnapshots(manifest?.snapshots||[]),[manifest]);
  const entry=manifest?.snapshots.find(item=>item.id===period);
  const selected=schools.find(s=>s.code===selectedCode)||null;
+ const homeSchool=schools.find(s=>s.code===homeCode);
+ const selectHome=code=>{
+  setHomeCode(code);
+  if(code)requestAnimationFrame(()=>{
+   const card=homeProfile.current;
+   if(!card)return;
+   card.focus({preventScroll:true});
+   card.scrollIntoView({block:'start',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+  });
+ };
  useEffect(()=>{
   const controller=new AbortController(), initial=bundledReports.manifest;
   mergePublishedSnapshots(initial,controller.signal).then(merged=>{
@@ -53,7 +63,8 @@ function App(){
  {mobile&&<button className="scrim" aria-label="Tutup menu" onClick={()=>setMobile(false)}/>}
  <main id="main-content" tabIndex="-1"><header className="topbar"><div className="breadcrumb"><button className="menu" aria-label="Buka menu" aria-expanded={mobile} onClick={()=>setMobile(!mobile)}><Menu size={21}/></button><span>{view==='applications'?'Selangor':'Petaling Utama'}</span><ChevronRight size={14}/><b>{views.find(v=>v[0]===view)[1]}</b></div><div className="top-actions"><CalendarDays size={16}/><label className="sr-only" htmlFor="report-period">Bulan laporan</label><select id="report-period" value={period.slice(-10,-3)} onChange={e=>{const report=months.find(item=>item.month===e.target.value);if(report)setPeriod(report.id)}}>{months.map(report=><option key={report.month} value={report.month}>{report.label}</option>)}</select></div></header>
  <div className="content" key={view}>
- {view==='overview'&&<section className="panel home-school-search"><h1>Cari sekolah anda</h1><SchoolSearchPicker schools={schools} label="Nama atau kod sekolah" onChange={code=>setSelected(schools.find(school=>school.code===code))}/></section>}
+ {view==='overview'&&<section className="panel home-school-search"><h1>Cari sekolah anda</h1><SchoolSearchPicker schools={schools} value={homeCode} label="Nama atau kod sekolah" onChange={selectHome} inlineResults/></section>}
+ {view==='overview'&&homeSchool&&<div className="home-profile-anchor" ref={homeProfile} tabIndex={-1} aria-label="Profil sekolah dipilih"><SchoolDNA inline key={`${data.id}:${homeSchool.code}`} school={homeSchool} data={data} manifest={manifest} registry={registry} compared={compare.includes(homeSchool.code)} compareFull={compare.length>=3} onCompare={()=>toggle(homeSchool)} onShowCompare={()=>go('compare')}/></div>}
  {view==='overview'&&<DistrictOverview data={data} schools={schools} onExplore={explore} onOpen={setSelected} onCompare={()=>go('compare')} onStories={()=>go('stories')} onAI={()=>go('ai')} onMethod={()=>setMethod(true)}/>}
  {['analysis','matrix','quadrant','compare','ai','stories'].includes(view)&&<nav className="analysis-links" aria-label="Analisis Daerah">{[['analysis','Analisis Daerah'],['matrix','Matriks'],['quadrant','Peta penglibatan'],['compare','Banding sekolah'],['ai','AI Tools guru'],['stories','Cerapan data']].map(([id,label])=><button key={id} aria-current={view===id?'page':undefined} onClick={()=>go(id)}>{label}</button>)}</nav>}
  {view==='analysis'&&<DistrictAnalysis manifest={manifest} schools={schools}/>}

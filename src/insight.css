@@ -89,3 +89,18 @@
 .dna-pdf-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;flex:1 1 100%}
 .dna-pdf-actions>.school-pdf-action:only-child{grid-column:1/-1}
 @media(max-width:380px){.dna-pdf-actions{grid-template-columns:minmax(0,1fr)}}
+
+.inline-school-picker .school-suggestions{position:static;max-height:18rem;margin-top:8px;box-shadow:none}
+.home-profile-anchor{scroll-margin-top:78px;margin:0 0 22px}
+.home-profile-anchor:focus{outline:none}
+.home-school-profile{background:#fff;border:1px solid #d8e4f3;border-radius:16px;overflow:hidden}
+.home-school-profile .dna-title-block,.home-school-profile .dna-tabs,.home-school-profile .dna-tab-content,.home-profile-pdfs,.home-profile-compare{padding-inline:clamp(15px,3vw,26px)}
+.home-school-profile .dna-title-block{padding-top:22px;padding-bottom:14px}
+.home-profile-pdfs{padding-bottom:14px}
+.home-profile-pdfs .dna-pdf-actions{max-width:540px}
+.home-profile-compare{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding-block:12px;border-top:1px solid #e5edf6}
+@media(min-width:820px){
+  .home-school-profile .dna-tab-content[aria-labelledby$="-overview-tab"]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .home-school-profile .dna-tab-content>:not(.dna-performance){grid-column:1/-1}
+  .home-school-profile .dna-performance{margin:0;min-width:0}
+}
