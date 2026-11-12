@@ -96,7 +96,7 @@
 .home-school-profile{background:#fff;border:1px solid #d8e4f3;border-radius:16px;overflow:hidden}
 .home-school-profile .dna-title-block,.home-school-profile .dna-tabs,.home-school-profile .dna-tab-content,.home-profile-pdfs,.home-profile-compare{padding-inline:clamp(15px,3vw,26px)}
 .home-school-profile .dna-title-block{padding-top:22px;padding-bottom:14px}
-.home-profile-pdfs{padding-bottom:14px}
+.home-profile-pdfs{padding-block:4px 16px}
 .home-profile-pdfs .dna-pdf-actions{max-width:540px}
 .home-profile-compare{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding-block:12px;border-top:1px solid #e5edf6}
 @media(min-width:820px){
