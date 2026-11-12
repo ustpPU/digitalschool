@@ -60,3 +60,29 @@
 
 .admin-footer-link{color:var(--ink,#172b46);text-underline-offset:.2em}
 @media(max-width:560px){footer:has(.admin-footer-link){flex-wrap:wrap;row-gap:.75rem}}
+
+.school-rosters{display:grid;gap:10px;margin:18px 0}
+.roster-section-head{display:grid;gap:8px;margin-bottom:3px}
+.roster-section-head h3{margin:0;font-size:1rem}
+.roster-panel{margin:0;background:#fff;border:1px solid #dbe5f2;border-radius:12px;overflow:hidden}
+.roster-panel summary{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;align-items:center;gap:9px;padding:12px;cursor:pointer;list-style:none}
+.roster-panel summary::-webkit-details-marker{display:none}
+.roster-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:#edf3ff;color:#2255a8}
+.roster-panel[data-kind=teachers] .roster-icon{background:#e9f6f3;color:#137367}
+.roster-title{display:grid;gap:2px;color:#203654;font-size:.87rem;overflow-wrap:anywhere}
+.roster-title small,.roster-tools small{color:#526883;font-size:.75rem}
+.roster-count{padding:4px 7px;border-radius:6px;background:#f0f4fa;color:#324d72;font-size:.72rem;white-space:nowrap}
+.roster-chevron{color:#526883;transition:transform .18s ease}
+.roster-panel[open] .roster-chevron{transform:rotate(180deg)}
+.roster-body{border-top:1px solid #e2eaf4;padding:11px}
+.roster-tools,.school-pdf-links{display:flex;align-items:center;flex-wrap:wrap;gap:9px}
+.roster-tools .outline{min-height:42px}
+.roster-panel ol{display:grid;margin:10px 0;padding:0;list-style:none}
+.roster-panel li{display:grid;grid-template-columns:2.1rem minmax(0,1fr);gap:8px;border-bottom:1px solid #e8eef5;padding:8px 6px;color:#203654;overflow-wrap:anywhere}
+.roster-panel li span{color:#526883;font-size:.78rem;font-variant-numeric:tabular-nums}
+.school-pdf-action{min-width:0}.school-pdf-action .dna-print-button{width:100%;justify-content:center;white-space:normal;text-align:center}
+.school-pdf-links{margin-top:7px}
+.school-pdf-links a{display:inline-flex;align-items:center;gap:5px;min-height:36px;color:#1d50a6;font-size:.8rem;font-weight:650}
+.dna-sheet-actions>.school-pdf-action{flex:1 1 100%}
+@media(max-width:360px){.roster-panel summary{gap:6px;padding:9px}.roster-icon{width:28px;height:28px}}
+@media(prefers-reduced-motion:reduce){.roster-chevron{transition:none}}

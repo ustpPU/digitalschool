@@ -4,6 +4,11 @@ function doGet(event) {
   const school = String(event?.parameter?.school || '').trim().toUpperCase();
   const output = value => ContentService.createTextOutput(JSON.stringify(value))
     .setMimeType(ContentService.MimeType.JSON);
+  const summary = String(event?.parameter?.summary || '');
+  if (summary) {
+    try { return output(readSummary_(summary)); }
+    catch (_) { return output({error:'Summary temporarily unavailable'}); }
+  }
   if (!/^[A-Z]{3}[0-9]{4}$/.test(school)) return output({ error: 'Invalid school' });
 
   try {
@@ -48,4 +53,41 @@ function doGet(event) {
   } catch (_) {
     return output({ error: 'Lists temporarily unavailable' });
   }
+}
+
+
+function readSummary_(request) {
+  const idPattern = /^\d{4}-\d{2}-\d{2}_\d{4}-\d{2}-\d{2}$/;
+  if (request !== 'index' && !idPattern.test(request)) return {error:'Invalid period'};
+  const folderId = PropertiesService.getScriptProperties().getProperty('ROSTER_FOLDER_ID');
+  if (!folderId) return request === 'index' ? {snapshots:[]} : {error:'Snapshot unavailable'};
+  const folder = DriveApp.getFolderById(folderId);
+  function newest(id) {
+    const files=folder.getFilesByName('summary-'+id+'.json');
+    let latest;
+    while (files.hasNext()) {
+      const file=files.next();
+      if (!latest || file.getLastUpdated()>latest.getLastUpdated()) latest=file;
+    }
+    return latest;
+  }
+  if (request !== 'index') {
+    const file=newest(request);
+    if (!file) return {error:'Snapshot unavailable'};
+    const snapshot=JSON.parse(file.getBlob().getDataAsString('UTF-8'));
+    if (snapshot.id!==request || snapshot.district!=='PETALING UTAMA' || !Array.isArray(snapshot.schools)) return {error:'Invalid snapshot'};
+    return snapshot;
+  }
+  const files=folder.getFiles(), periods=new Set();
+  while (files.hasNext()) {
+    const name=files.next().getName();
+    const match=/^summary-(\d{4}-\d{2}-\d{2}_\d{4}-\d{2}-\d{2})\.json$/.exec(name);
+    if (match) periods.add(match[1]);
+  }
+  const snapshots=[...periods].map(id=>{
+    const [start,end]=id.split('_');
+    const display=date=>date.split('-').reverse().join('/');
+    return {id,label:start===end?display(start):display(start)+' – '+display(end)};
+  });
+  return {snapshots};
 }

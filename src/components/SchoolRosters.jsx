@@ -1,4 +1,6 @@
 import React,{useEffect,useState} from 'react';
+import {BookOpen,ChevronDown,Copy,Users} from 'lucide-react';
+import SchoolPdfAction from './SchoolPdfAction.jsx';
 
 const endpoint=import.meta.env.VITE_ROSTER_URL;
 const requests=new Map();
@@ -26,16 +28,26 @@ function loadSchool(code) {
 }
 
 function RosterList({list}) {
-  const [limit,setLimit]=useState(30);
-  return <details className="roster-panel">
-    <summary><b>{labels[list.kind]}</b> · {list.names.length} nama</summary>
-    <p>Tempoh laporan {list.label}</p>
-    <ul>{list.names.slice(0,limit).map((name,index)=><li key={index}>{name}</li>)}</ul>
-    {list.names.length>limit&&<button className="outline" onClick={()=>setLimit(limit+30)}>Lihat 30 nama lagi</button>}
+  const [limit,setLimit]=useState(30),[copyStatus,setCopyStatus]=useState('');
+  const Icon=list.kind==='students'?BookOpen:Users;
+  const copy=async()=>{
+    try{
+      await navigator.clipboard.writeText(list.names.join('\n'));
+      setCopyStatus('Senarai disalin.');
+    }catch{setCopyStatus('Gagal menyalin. Cuba sekali lagi.')}
+  };
+  return <details className="roster-panel" data-kind={list.kind}>
+    <summary><span className="roster-icon"><Icon size={18}/></span><span className="roster-title"><b>{labels[list.kind]}</b><small>{list.label}</small></span><span className="roster-count">{list.names.length} nama</span><ChevronDown className="roster-chevron" size={16}/></summary>
+    <div className="roster-body">
+      <div className="roster-tools"><button type="button" className="outline" disabled={!list.names.length} onClick={copy}><Copy size={15}/> Salin senarai</button><small role="status">{copyStatus}</small></div>
+      <ol>{list.names.slice(0,limit).map((name,index)=><li key={index}><span aria-hidden="true">{String(index+1).padStart(2,'0')}</span>{name}</li>)}</ol>
+      {list.names.length>limit&&<button className="outline" onClick={()=>setLimit(limit+30)}>Lihat {Math.min(30,list.names.length-limit)} nama lagi</button>}
+    </div>
   </details>;
 }
 
-export default function SchoolRosters({code}) {
+export default function SchoolRosters({school}) {
+  const {code}=school;
   const [lists,setLists]=useState([]);
   const [loading,setLoading]=useState(Boolean(endpoint));
   const [failed,setFailed]=useState(false);
@@ -52,5 +64,9 @@ export default function SchoolRosters({code}) {
   },[code,attempt]);
   if(loading)return <p role="status">Menyemak senarai sekolah…</p>;
   if(failed)return <p role="alert">Senarai gagal dimuatkan. <button className="outline" onClick={()=>retry(value=>value+1)}>Cuba lagi</button></p>;
-  return lists.map(list=><RosterList key={list.kind} list={list}/>);
+  if(!lists.length)return null;
+  return <section className="school-rosters" aria-label="Senarai nama sekolah">
+    <div className="roster-section-head"><h3>Senarai nama terkini</h3><SchoolPdfAction school={school} lists={lists}/></div>
+    {lists.map(list=><RosterList key={list.kind+list.label} list={list}/>)}
+  </section>;
 }

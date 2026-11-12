@@ -22,9 +22,9 @@
   <h1>Ruang Admin</h1>
   <p>Akaun Google CM4 disahkan. Pilih CSV dan semak hasil tapisan sebelum terbitkan.</p>
   <form>
-    <label>Set laporan<select name="kind"><option value="students">Set 2 · Murid tidak aktif</option><option value="teachers">Set 3 · Guru belum guna AI Tools</option></select></label>
+    <label>Set laporan<select name="kind"><option value="summary">Set 1 · Ringkasan sekolah</option><option value="students">Set 2 · Murid tidak aktif</option><option value="teachers">Set 3 · Guru belum guna AI Tools</option></select></label>
     <div class="dates"><label>Tarikh mula<input name="start" type="date" required></label><label>Tarikh tamat<input name="end" type="date"></label></div>
-    <label>Fail CSV<input name="file" type="file" accept=".csv,text/csv" required></label>
+    <label>Fail laporan<input name="file" type="file" accept=".csv,.xlsx" required></label>
     <div class="actions"><button type="submit">Pratonton import</button><button type="button" class="secondary" id="publish" hidden>Terbitkan ke Google Drive</button></div>
     <output aria-live="polite"></output>
   </form>
@@ -35,6 +35,22 @@
   const publish = document.querySelector('#publish');
   const status = form.querySelector('output');
   let prepared, revision = 0;
+  form.elements.kind.addEventListener('change', () => {
+    const file = form.elements.file;
+    file.value = '';
+    file.accept = form.elements.kind.value === 'summary' ? '.csv,.xlsx' : '.csv';
+  });
+  async function summaryFile(file) {
+    if (!/\.(csv|xlsx)$/i.test(file.name)) throw new Error('Pilih fail CSV atau XLSX.');
+    if (file.size > (/\.xlsx$/i.test(file.name) ? 6 : 8) * 1024 * 1024) throw new Error('Fail ringkasan terlalu besar.');
+    if (/\.csv$/i.test(file.name)) return file.text();
+    return new Promise((resolve,reject)=>{
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = () => reject(new Error('Fail XLSX gagal dibaca.'));
+      reader.readAsDataURL(file);
+    });
+  }
   const run = (method, args) => new Promise((resolve, reject) => {
     google.script.run.withSuccessHandler(resolve).withFailureHandler(reject)[method](...args);
   });
@@ -135,14 +151,16 @@
     try {
       const reportKind = kind.value;
       const first = start.value, last = end.value || first;
-      const filtered = await districtCsv(file.files[0], reportKind);
-      const args = [reportKind, first, last, filtered.csv];
+      const isSummary = reportKind === 'summary';
+      const input = file.files[0];
+      const filtered = isSummary ? {csv:await summaryFile(input),excluded:0} : await districtCsv(input, reportKind);
+      const args = isSummary ? [first,last,input.name,filtered.csv] : [reportKind,first,last,filtered.csv];
       if (current !== revision) return;
-      const result = await run('previewRoster', args);
+      const result = await run(isSummary ? 'previewSummary' : 'previewRoster', args);
       if (current !== revision) return;
       status.textContent = result.accepted + ' rekod diterima · ' + result.schools + ' sekolah\n' +
         (result.excluded + filtered.excluded) + ' rekod luar daerah · ' + result.duplicates + ' pendua dikecualikan';
-      prepared = args;
+      prepared = {args, method:isSummary ? 'publishSummary' : 'publishRoster'};
       publish.hidden = false;
     } catch (error) {
       if (current === revision) status.textContent = error.message || 'Semakan gagal. Cuba semula.';
@@ -157,7 +175,7 @@
     preview.disabled = true;
     status.textContent = 'Menghantar ke Google Drive…';
     try {
-      const result = await run('publishRoster', prepared);
+      const result = await run(prepared.method, prepared.args);
       if (current !== revision) return;
       status.textContent = result.message;
       publish.hidden = true;

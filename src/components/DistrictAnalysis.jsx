@@ -1,3 +1,4 @@
+import {loadSnapshot} from '../data/snapshots.js';
 import React,{useEffect,useState} from 'react';
 import {MEASURES,formatRate,metric} from '../data/explorer.js';
 import {shortName} from '../data/school-search.js';
@@ -16,9 +17,7 @@ export default function DistrictAnalysis({manifest,schools}) {
     setError(false);
     const get=async id=>{
       const report=reports.find(item=>item.id===id);
-      const response=await fetch(import.meta.env.BASE_URL+'data/'+report.file,{signal:controller.signal});
-      if(!response.ok)throw new Error('Snapshot unavailable');
-      return response.json();
+      return loadSnapshot(report,controller.signal);
     };
     Promise.all([get(before),get(after)]).then(setResults).catch(()=>{if(!controller.signal.aborted)setError(true)});
     return ()=>controller.abort();
