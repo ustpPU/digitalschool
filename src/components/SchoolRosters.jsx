@@ -1,6 +1,5 @@
 import React,{useEffect,useState} from 'react';
 import {BookOpen,ChevronDown,Copy,Users} from 'lucide-react';
-import SchoolPdfAction from './SchoolPdfAction.jsx';
 
 const endpoint=import.meta.env.VITE_ROSTER_URL;
 const requests=new Map();
@@ -46,8 +45,7 @@ function RosterList({list}) {
   </details>;
 }
 
-export default function SchoolRosters({school}) {
-  const {code}=school;
+export function useSchoolRosters(code) {
   const [lists,setLists]=useState([]);
   const [loading,setLoading]=useState(Boolean(endpoint));
   const [failed,setFailed]=useState(false);
@@ -62,11 +60,15 @@ export default function SchoolRosters({school}) {
     }).catch(()=>{if(active)setFailed(true)}).finally(()=>{if(active)setLoading(false)});
     return ()=>{active=false};
   },[code,attempt]);
+  return {lists,loading,failed,retry:()=>retry(value=>value+1)};
+}
+
+export default function SchoolRosters({lists,loading,failed,retry}) {
   if(loading)return <p role="status">Menyemak senarai sekolah…</p>;
-  if(failed)return <p role="alert">Senarai gagal dimuatkan. <button className="outline" onClick={()=>retry(value=>value+1)}>Cuba lagi</button></p>;
+  if(failed)return <p role="alert">Senarai gagal dimuatkan. <button className="outline" onClick={retry}>Cuba lagi</button></p>;
   if(!lists.length)return null;
   return <section className="school-rosters" aria-label="Senarai nama sekolah">
-    <div className="roster-section-head"><h3>Senarai nama terkini</h3><SchoolPdfAction school={school} lists={lists}/></div>
+    <div className="roster-section-head"><h3>Senarai nama terkini</h3></div>
     {lists.map(list=><RosterList key={list.kind+list.label} list={list}/>)}
   </section>;
 }

@@ -1,3 +1,9 @@
+import manifest from '../../public/data/manifest.json';
+import registry from '../../public/data/school-metadata.json';
+import reportContext from '../../public/data/report-context.json';
+
+export const bundledReports={manifest,registry,reportContext};
+const bundledSnapshots=import.meta.glob('../../public/data/snapshot-*.json',{import:'default'});
 const endpoint=import.meta.env.VITE_ROSTER_URL;
 
 async function json(url,signal) {
@@ -16,7 +22,10 @@ function summaryUrl(id) {
 }
 
 export function loadSnapshot(entry,signal) {
-  return json(entry.file?import.meta.env.BASE_URL+'data/'+entry.file:summaryUrl(entry.id),signal);
+  if(!entry.file)return json(summaryUrl(entry.id),signal);
+  const load=bundledSnapshots['../../public/data/'+entry.file];
+  if(!load)return Promise.reject(new Error('Snapshot unavailable'));
+  return load();
 }
 
 export async function mergePublishedSnapshots(manifest,signal) {
@@ -36,4 +45,18 @@ export async function mergePublishedSnapshots(manifest,signal) {
   }
   const byEnd=entry=>entry.id.split('_').reverse().join('_');
   return {...manifest,snapshots:[...entries.values()].sort((a,b)=>byEnd(b).localeCompare(byEnd(a)))};
+}
+
+
+const monthFormatter=new Intl.DateTimeFormat('ms-MY',{month:'long',year:'numeric',timeZone:'UTC'});
+
+export function monthlySnapshots(entries) {
+  const byEnd=entry=>entry.id.split('_').reverse().join('_');
+  const months=new Map();
+  for(const entry of [...entries].sort((a,b)=>byEnd(b).localeCompare(byEnd(a)))){
+    const month=entry.id.slice(-10,-3);
+    if(months.has(month))continue;
+    months.set(month,{id:entry.id,month,label:monthFormatter.format(new Date(month+'-01T00:00:00Z'))});
+  }
+  return [...months.values()];
 }
