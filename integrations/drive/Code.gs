@@ -4,6 +4,18 @@ function doGet(event) {
   const school = String(event?.parameter?.school || '').trim().toUpperCase();
   const output = value => ContentService.createTextOutput(JSON.stringify(value))
     .setMimeType(ContentService.MimeType.JSON);
+  if (event?.parameter?.dcs === 'latest') {
+    try {
+      const folderId=PropertiesService.getScriptProperties().getProperty('ROSTER_FOLDER_ID');
+      if(!folderId)return output({});
+      const files=DriveApp.getFolderById(folderId).getFilesByName('dcs-latest.json');
+      if(!files.hasNext())return output({});
+      const report=JSON.parse(files.next().getBlob().getDataAsString('UTF-8'));
+      const rows=report.rows.filter(row=>Array.isArray(row)&&row.length===5&&
+        /^[A-Z]{3}[0-9]{4}$/.test(row[0])&&row.slice(1).every(v=>Number.isSafeInteger(v)&&v>=0)&&row[1]<=row[2]&&row[3]<=row[4]);
+      return output({date:report.date,rows});
+    } catch (_) { return output({error:'DCS temporarily unavailable'}); }
+  }
   const summary = String(event?.parameter?.summary || '');
   if (summary) {
     try { return output(readSummary_(summary)); }

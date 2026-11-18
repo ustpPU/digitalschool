@@ -104,3 +104,28 @@
   .home-school-profile .dna-tab-content>:not(.dna-performance){grid-column:1/-1}
   .home-school-profile .dna-performance{margin:0;min-width:0}
 }
+
+.dcs-home{margin-bottom:20px;padding:clamp(16px,3vw,26px)}
+.dcs-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.dcs-head .section-kicker{display:flex;align-items:center;gap:6px}
+.dcs-head h2,.dcs-head p{margin:4px 0}
+.dcs-head p,.dcs-note,.dcs-empty{color:#526883}
+.dcs-progress-grid,.dcs-totals,.dcs-ranking-grid{display:grid;gap:12px}
+.dcs-progress-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.dcs-totals,.dcs-ranking-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:14px}
+.dcs-totals,.dcs-ranking,.dcs-lookup{padding:clamp(14px,2vw,22px)}
+.dcs-progress{display:grid;gap:5px;min-width:0;padding:12px;background:#f3f7fc;border-radius:9px}
+.dcs-progress span{font-weight:650}.dcs-progress strong{font-size:clamp(20px,3vw,34px);color:#2159b7;font-variant-numeric:tabular-nums}
+.dcs-progress small,.dcs-ranking small{color:#526883}
+.dcs-filters{display:flex;flex-wrap:wrap;gap:8px}
+.dcs-filters button[aria-pressed=true]{background:#164a9b;color:#fff;border-color:#164a9b}
+.dcs-ranking h2,.dcs-lookup h2{font-size:1.12rem;margin:0 0 10px}
+.dcs-ranking ol{list-style:none;padding:0;margin:0}
+.dcs-ranking li{display:grid;grid-template-columns:1.8rem minmax(0,1fr) auto;gap:3px 8px;align-items:start;padding:10px 0;border-bottom:1px solid #e4edf6}
+.dcs-ranking li:last-child{border-bottom:0}.dcs-ranking li small{display:block;margin-top:2px}
+.dcs-ranking li>strong,.dcs-rank{font-variant-numeric:tabular-nums;color:#185eb4}
+.dcs-ranking.lowest li>strong{color:#925213}
+.dcs-counts{grid-column:2/-1;display:flex;gap:6px 14px;flex-wrap:wrap;color:#526883;font-size:.8rem}
+.dcs-counts b{color:#243e60;white-space:nowrap}
+.dcs-lookup{margin-top:16px}.dcs-lookup .lookup{margin-top:12px}
+@media(max-width:760px){.dcs-ranking-grid{grid-template-columns:minmax(0,1fr)}.dcs-progress-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dcs-progress-grid>:first-child{grid-column:1/-1}}

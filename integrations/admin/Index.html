@@ -13,6 +13,7 @@
     input,select{width:100%;background:#fff;color:#142846}button{cursor:pointer;background:#2055b1;color:white;border-color:#2055b1;font-weight:650}
     button:disabled{opacity:.55;cursor:wait}button.secondary{background:#eef4ff;color:#194b9d}.actions{display:flex;flex-wrap:wrap;gap:10px}
     :focus-visible{outline:3px solid #5687e7;outline-offset:3px}output{white-space:pre-line;overflow-wrap:anywhere}output:empty{display:none}
+    [hidden]{display:none!important}
     @media(max-width:480px){.actions button{width:100%}.dates{grid-template-columns:minmax(0,1fr)}}
   </style>
 </head>
@@ -22,7 +23,7 @@
   <h1>Ruang Admin</h1>
   <p>Akaun Google CM4 disahkan. Pilih CSV dan semak hasil tapisan sebelum terbitkan.</p>
   <form>
-    <label>Set laporan<select name="kind"><option value="summary">Set 1 · Ringkasan sekolah</option><option value="students">Set 2 · Murid tidak aktif</option><option value="teachers">Set 3 · Guru belum guna AI Tools</option></select></label>
+    <label>Set laporan<select name="kind"><option value="summary">Set 1 · Ringkasan sekolah</option><option value="students">Set 2 · Murid tidak aktif</option><option value="teachers">Set 3 · Guru belum guna AI Tools</option><option value="dcs">DCS · Data terkini</option></select></label>
     <div class="dates"><label>Tarikh mula<input name="start" type="date" required></label><label>Tarikh tamat<input name="end" type="date"></label></div>
     <label>Fail laporan<input name="file" type="file" accept=".csv,.xlsx" required></label>
     <div class="actions"><button type="submit">Pratonton import</button><button type="button" class="secondary" id="publish" hidden>Terbitkan ke Google Drive</button></div>
@@ -38,6 +39,10 @@
   form.elements.kind.addEventListener('change', () => {
     const file = form.elements.file;
     file.value = '';
+    const isDcs = form.elements.kind.value === 'dcs';
+    form.elements.end.closest('label').hidden = isDcs;
+    form.elements.end.disabled = isDcs;
+    form.elements.start.closest('label').firstChild.textContent = isDcs ? 'Tarikh semakan DCS' : 'Tarikh mula';
     file.accept = form.elements.kind.value === 'summary' ? '.csv,.xlsx' : '.csv';
   });
   async function summaryFile(file) {
@@ -152,15 +157,16 @@
       const reportKind = kind.value;
       const first = start.value, last = end.value || first;
       const isSummary = reportKind === 'summary';
+      const isDcs = reportKind === 'dcs';
       const input = file.files[0];
-      const filtered = isSummary ? {csv:await summaryFile(input),excluded:0} : await districtCsv(input, reportKind);
-      const args = isSummary ? [first,last,input.name,filtered.csv] : [reportKind,first,last,filtered.csv];
+      const filtered = (isSummary || isDcs) ? {csv:await summaryFile(input),excluded:0} : await districtCsv(input, reportKind);
+      const args = isDcs ? [first,filtered.csv] : isSummary ? [first,last,input.name,filtered.csv] : [reportKind,first,last,filtered.csv];
       if (current !== revision) return;
-      const result = await run(isSummary ? 'previewSummary' : 'previewRoster', args);
+      const result = await run(isDcs ? 'previewDcs' : isSummary ? 'previewSummary' : 'previewRoster', args);
       if (current !== revision) return;
       status.textContent = result.accepted + ' rekod diterima · ' + result.schools + ' sekolah\n' +
-        (result.excluded + filtered.excluded) + ' rekod luar daerah · ' + result.duplicates + ' pendua dikecualikan';
-      prepared = {args, method:isSummary ? 'publishSummary' : 'publishRoster'};
+        (result.excluded + filtered.excluded) + (isDcs ? ' rekod dikecualikan · ' : ' rekod luar daerah · ') + result.duplicates + ' pendua dikecualikan';
+      prepared = {args, method:isDcs ? 'publishDcs' : isSummary ? 'publishSummary' : 'publishRoster'};
       publish.hidden = false;
     } catch (error) {
       if (current === revision) status.textContent = error.message || 'Semakan gagal. Cuba semula.';

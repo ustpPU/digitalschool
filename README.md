@@ -96,3 +96,9 @@ Borang web membaca CSV secara berperingkat di pelayar dan menghantar hanya lajur
 Profil menyediakan **Salin senarai** untuk setiap kumpulan yang tersedia. PDF Rumusan dan PDF Senarai Nama dijana di pelayar sebagai dokumen A4 berjenama, dengan pilihan simpan atau buka untuk cetak.
 
 Pemilih utama memaparkan bulan berdasarkan tarikh tamat laporan dan memilih laporan terkini bagi setiap bulan. Tempoh penuh kekal tersedia dalam sejarah. GitHub Pages tidak menerbitkan fail JSON berasingan di laluan data statik. Data yang digunakan dalam halaman awam masih boleh diperiksa melalui pelayar.
+
+### Pemantauan DCS
+
+Data diambil daripada **DCS → State Progress → Selangor**. Dalam Ruang Admin CM4, pilih **DCS · Data terkini**, masukkan tarikh semakan, dan import CSV dengan lajur `Kod sekolah` (atau `School code`), `Students Completion` dan `Completion by class`. Kedua-dua lajur kiraan menggunakan format `selesai/jumlah`. Pratonton menapis kod bukan PU dan kedua-dua Kolej Tingkatan Enam. Penerbitan menggantikan data DCS terkini sahaja. Bahagian DCS disembunyikan selepas 15 Disember 2026 mengikut waktu Malaysia.
+
+Untuk Apps Script, sertakan `integrations/admin/Dcs.gs` bersama fail sedia ada dalam projek peribadi dan terbitkan semula versi pembaca `integrations/drive/Code.gs`. Padanan awal yang dibundel berasal daripada laporan 18 November 2026.

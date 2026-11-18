@@ -9,6 +9,8 @@ import DistrictAnalysis from './components/DistrictAnalysis.jsx';
 import SchoolExplorer from './components/SchoolExplorer.jsx';
 import SchoolDNA from './components/SchoolDNA.jsx';
 import SchoolComparison from './components/SchoolComparison.jsx';
+import DcsMonitoring,{DcsHome} from './components/DcsMonitoring.jsx';
+import {dcsInSeason,dcsSchools,initialDcs,loadLatestDcs} from './data/dcs.js';
 import DistrictOverview from './components/DistrictOverview.jsx';
 import SchoolMatrix from './components/SchoolMatrix.jsx';
 import SchoolQuadrant from './components/SchoolQuadrant.jsx';
@@ -16,13 +18,22 @@ import AIToolsAnalysis from './components/AIToolsAnalysis.jsx';
 import StateApplications from './components/StateApplications.jsx';
 import InsightStories from './components/InsightStories.jsx';
 import {adaptSchools,exploreSchools,UNKNOWN_CATEGORY} from './data/explorer.js';
-const views=[['overview','Utama',BarChart3],['analysis','Analisis Daerah',Layers],['explorer','Teroka sekolah',School],['matrix','Matriks',Grid2X2],['quadrant','Peta penglibatan',ScanLine],['compare','Banding sekolah',GitCompareArrows],['ai','AI Tools guru',Sparkles],['stories','Cerapan data',Layers],['applications','Aplikasi Selangor',Layers3]];
+const dcsActive=dcsInSeason();
+const views=[['overview','Utama',BarChart3],...(dcsActive?[['dcs','Pemantauan DCS',School]]:[]),['analysis','Analisis Daerah',Layers],['explorer','Teroka sekolah',School],['matrix','Matriks',Grid2X2],['quadrant','Peta penglibatan',ScanLine],['compare','Banding sekolah',GitCompareArrows],['ai','AI Tools guru',Sparkles],['stories','Cerapan data',Layers],['applications','Aplikasi Selangor',Layers3]];
 function App(){
  const [manifest,setManifest]=useState(bundledReports.manifest),[data,setData]=useState(null),[period,setPeriod]=useState(bundledReports.manifest.snapshots[0].id),[err,setErr]=useState(''),[view,setView]=useState(()=>views.some(v=>v[0]===location.hash.slice(1))?location.hash.slice(1):'overview'),[query,setQuery]=useState(''),[type,setType]=useState('all'),[sort,setSort]=useState('students-desc'),[selectedCode,setSelectedCode]=useState(null),[homeCode,setHomeCode]=useState(''),[compare,setCompare]=useState([]),[compareMeasure,setCompareMeasure]=useState('all'),[threshold,setThreshold]=useState(50),[mobile,setMobile]=useState(false),[method,setMethodState]=useState(false);
  const returnFocus=useRef(null), homeProfile=useRef(null);
  const setSelected=useCallback(s=>{if(s)returnFocus.current=document.activeElement;setSelectedCode(s?.code??null)},[]);
  const setMethod=useCallback(value=>{if(value)returnFocus.current=document.activeElement;setMethodState(value)},[]);
  const {registry,reportContext}=bundledReports;
+ const [dcs,setDcs]=useState(initialDcs);
+ const dcsRows=useMemo(()=>dcsSchools(dcs,registry),[dcs,registry]);
+ useEffect(()=>{
+  if(!dcsActive)return;
+  const controller=new AbortController();
+  loadLatestDcs(controller.signal).then(setDcs).catch(()=>{});
+  return ()=>controller.abort();
+ },[]);
  const schools=useMemo(()=>adaptSchools(data,registry),[data,registry]);
  const months=useMemo(()=>monthlySnapshots(manifest?.snapshots||[]),[manifest]);
  const entry=manifest?.snapshots.find(item=>item.id===period);
@@ -59,12 +70,14 @@ function App(){
  const explore=(category='all',audience='students',direction='desc')=>{setType(category);setQuery('');setSort(`${audience}-${direction}`);go('explorer')};
  const controls={query,setQuery,category:type,setCategory:setType,sort,setSort};
  return <div className="app"><a className="skip-link" href="#main-content">Langkau ke kandungan</a><div className="app-shell" inert={selected||method?true:undefined}>
- <aside className={mobile?'sidebar open':'sidebar'}><a className="brand" href="#overview" onClick={e=>{e.preventDefault();go('overview')}}><span className="brand-icon"><BarChart3 size={23}/></span><span className="brand-copy"><span className="brand-title">PU <b>Insight</b></span><small>PETALING UTAMA</small></span></a><div className="district-label">RUANG KERJA DAERAH</div><nav aria-label="Navigasi utama">{views.filter(([id])=>['overview','explorer','analysis','applications'].includes(id)).map(([id,label,Icon])=><button key={id} className={view===id?'active':''} aria-current={view===id?'page':undefined} onClick={()=>go(id)}><Icon size={19}/><span>{label}</span>{id==='compare'&&compare.length>0?<span className="nav-count">{compare.length}</span>:view===id?<ChevronRight size={15}/>:null}</button>)}</nav><div className="sidebar-bottom"><div className="district-identity"><span className="district-crest"><img src={import.meta.env.BASE_URL+"brand/ppd-petaling-utama.png"} alt="Jata Negara" width="1280" height="550"/></span><div><b>PPD Petaling Utama</b><small>Unit Sumber dan Teknologi Pendidikan</small></div></div><button className="method-link" onClick={()=>{setMobile(false);setMethod(true)}}><Info size={16}/> Sumber & kaedah <ArrowUpRight size={14}/></button><span className="local-label">{import.meta.env.PROD?'Data penglibatan digital daerah':'Pratonton tempatan'}</span></div></aside>
+ <aside className={mobile?'sidebar open':'sidebar'}><a className="brand" href="#overview" onClick={e=>{e.preventDefault();go('overview')}}><span className="brand-icon"><BarChart3 size={23}/></span><span className="brand-copy"><span className="brand-title">PU <b>Insight</b></span><small>PETALING UTAMA</small></span></a><div className="district-label">RUANG KERJA DAERAH</div><nav aria-label="Navigasi utama">{views.filter(([id])=>['overview','explorer','analysis','applications','dcs'].includes(id)).map(([id,label,Icon])=><button key={id} className={view===id?'active':''} aria-current={view===id?'page':undefined} onClick={()=>go(id)}><Icon size={19}/><span>{label}</span>{id==='compare'&&compare.length>0?<span className="nav-count">{compare.length}</span>:view===id?<ChevronRight size={15}/>:null}</button>)}</nav><div className="sidebar-bottom"><div className="district-identity"><span className="district-crest"><img src={import.meta.env.BASE_URL+"brand/ppd-petaling-utama.png"} alt="Jata Negara" width="1280" height="550"/></span><div><b>PPD Petaling Utama</b><small>Unit Sumber dan Teknologi Pendidikan</small></div></div><button className="method-link" onClick={()=>{setMobile(false);setMethod(true)}}><Info size={16}/> Sumber & kaedah <ArrowUpRight size={14}/></button><span className="local-label">{import.meta.env.PROD?'Data penglibatan digital daerah':'Pratonton tempatan'}</span></div></aside>
  {mobile&&<button className="scrim" aria-label="Tutup menu" onClick={()=>setMobile(false)}/>}
- <main id="main-content" tabIndex="-1"><header className="topbar"><div className="breadcrumb"><button className="menu" aria-label="Buka menu" aria-expanded={mobile} onClick={()=>setMobile(!mobile)}><Menu size={21}/></button><span>{view==='applications'?'Selangor':'Petaling Utama'}</span><ChevronRight size={14}/><b>{views.find(v=>v[0]===view)[1]}</b></div><div className="top-actions"><CalendarDays size={16}/><label className="sr-only" htmlFor="report-period">Bulan laporan</label><select id="report-period" value={period.slice(-10,-3)} onChange={e=>{const report=months.find(item=>item.month===e.target.value);if(report)setPeriod(report.id)}}>{months.map(report=><option key={report.month} value={report.month}>{report.label}</option>)}</select></div></header>
+ <main id="main-content" tabIndex="-1"><header className="topbar"><div className="breadcrumb"><button className="menu" aria-label="Buka menu" aria-expanded={mobile} onClick={()=>setMobile(!mobile)}><Menu size={21}/></button><span>{view==='applications'?'Selangor':'Petaling Utama'}</span><ChevronRight size={14}/><b>{views.find(v=>v[0]===view)[1]}</b></div>{view!=='dcs'&&<div className="top-actions"><CalendarDays size={16}/><label className="sr-only" htmlFor="report-period">Bulan laporan</label><select id="report-period" value={period.slice(-10,-3)} onChange={e=>{const report=months.find(item=>item.month===e.target.value);if(report)setPeriod(report.id)}}>{months.map(report=><option key={report.month} value={report.month}>{report.label}</option>)}</select></div>}</header>
  <div className="content" key={view}>
  {view==='overview'&&<section className="panel home-school-search"><h1>Cari sekolah anda</h1><SchoolSearchPicker schools={schools} value={homeCode} label="Nama atau kod sekolah" onChange={selectHome} inlineResults/></section>}
  {view==='overview'&&homeSchool&&<div className="home-profile-anchor" ref={homeProfile} tabIndex={-1} aria-label="Profil sekolah dipilih"><SchoolDNA inline key={`${data.id}:${homeSchool.code}`} school={homeSchool} data={data} manifest={manifest} registry={registry} compared={compare.includes(homeSchool.code)} compareFull={compare.length>=3} onCompare={()=>toggle(homeSchool)} onShowCompare={()=>go('compare')}/></div>}
+ {view==='overview'&&dcsActive&&<DcsHome rows={dcsRows} date={dcs.date} onOpen={()=>go('dcs')}/>}
+ {view==='dcs'&&<DcsMonitoring rows={dcsRows} date={dcs.date}/>}
  {view==='overview'&&<DistrictOverview data={data} schools={schools} onExplore={explore} onOpen={setSelected} onCompare={()=>go('compare')} onStories={()=>go('stories')} onAI={()=>go('ai')} onMethod={()=>setMethod(true)}/>}
  {['analysis','matrix','quadrant','compare','ai','stories'].includes(view)&&<nav className="analysis-links" aria-label="Analisis Daerah">{[['analysis','Analisis Daerah'],['matrix','Matriks'],['quadrant','Peta penglibatan'],['compare','Banding sekolah'],['ai','AI Tools guru'],['stories','Cerapan data']].map(([id,label])=><button key={id} aria-current={view===id?'page':undefined} onClick={()=>go(id)}>{label}</button>)}</nav>}
  {view==='analysis'&&<DistrictAnalysis manifest={manifest} schools={schools}/>}
