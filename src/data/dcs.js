@@ -5,6 +5,8 @@ export const seasonEnds='2026-12-15';
 const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kuala_Lumpur',year:'numeric',month:'2-digit',day:'2-digit'});
 export const dcsInSeason=()=>today.format(new Date())<=seasonEnds;
 export const initialDcs=initial;
+// Confirm with the user before restoring this school in a future DCS update.
+const hiddenCodes=new Set(['BBB8307']);
 
 export async function loadLatestDcs(signal) {
   if(!endpoint)return initial;
@@ -19,7 +21,7 @@ export async function loadLatestDcs(signal) {
 export function dcsSchools(report,registry) {
   return report.rows.flatMap(([code,done,total,classes,classTotal])=>{
     const school=registry.schools[code];
-    if(!school||!['SK','SJKC','SJKT','SMK'].includes(school.category))return [];
+    if(hiddenCodes.has(code)||!school||!['SK','SJKC','SJKT','SMK'].includes(school.category))return [];
     return [{code,name:school.registryName,level:school.category==='SMK'?'secondary':'primary',
       done,total,classes,classTotal,rate:total?done/total:null}];
   });
