@@ -1,3 +1,4 @@
+import {rosterDateLabel} from '../data/report-labels.js';
 import React,{useEffect,useState} from 'react';
 import {BookOpen,ChevronDown,Copy,Users} from 'lucide-react';
 
@@ -36,7 +37,7 @@ function RosterList({list}) {
     }catch{setCopyStatus('Gagal menyalin. Cuba sekali lagi.')}
   };
   return <details className="roster-panel" data-kind={list.kind}>
-    <summary><span className="roster-icon"><Icon size={18}/></span><span className="roster-title"><b>{labels[list.kind]}</b><small>{list.label}</small></span><span className="roster-count">{list.names.length} nama</span><ChevronDown className="roster-chevron" size={16}/></summary>
+    <summary><span className="roster-icon"><Icon size={18}/></span><span className="roster-title"><b>{labels[list.kind]}</b><small>{rosterDateLabel(list.label)}</small></span><span className="roster-count">{list.names.length} nama</span><ChevronDown className="roster-chevron" size={16}/></summary>
     <div className="roster-body">
       <div className="roster-tools"><button type="button" className="outline" disabled={!list.names.length} onClick={copy}><Copy size={15}/> Salin senarai</button><small role="status">{copyStatus}</small></div>
       <ol>{list.names.slice(0,limit).map((name,index)=><li key={index}><span aria-hidden="true">{String(index+1).padStart(2,'0')}</span>{name}</li>)}</ol>
@@ -68,7 +69,7 @@ export default function SchoolRosters({lists,loading,failed,retry}) {
   if(failed)return <p role="alert">Senarai gagal dimuatkan. <button className="outline" onClick={retry}>Cuba lagi</button></p>;
   if(!lists.length)return null;
   return <section className="school-rosters" aria-label="Senarai nama sekolah">
-    <div className="roster-section-head"><h3>Senarai nama terkini</h3></div>
+    <div className="roster-section-head"><h3>Senarai nama untuk tindakan</h3><p>Tarikh setiap senarai mengikut laporan yang dibekalkan.</p></div>
     {lists.map(list=><RosterList key={list.kind+list.label} list={list}/>)}
   </section>;
 }

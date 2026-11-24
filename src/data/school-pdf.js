@@ -1,3 +1,4 @@
+import {rosterDateLabel} from './report-labels.js';
 import {categoryLabel,formatNumber,formatRate,metric} from './explorer.js';
 
 const width=595, height=842, margin=42;
@@ -120,7 +121,7 @@ function* rosterPages(school,lists,crest) {
     const newPage=()=>{
       const page=pageFor(school,'SENARAI NAMA SEKOLAH',crest);
       page.text(rosterLabels[list.kind],margin,page.y,15,700);
-      page.text('Tempoh laporan · '+list.label+'  |  '+list.names.length+' nama',margin,page.y+23,10,400,muted);
+      page.text(rosterDateLabel(list.label)+'  |  '+list.names.length+' nama',margin,page.y+23,10,400,muted);
       page.rule(page.y+43);
       page.y+=55;
       return page;

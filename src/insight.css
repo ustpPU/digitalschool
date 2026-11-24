@@ -135,3 +135,10 @@
 .inactive-summary-values small{font-size:.85rem;font-weight:500}
 .inactive-summary p{margin:8px 0;color:#334f73}
 .inactive-summary>small{display:block;color:#526883;line-height:1.5}
+.profile-section-heading{grid-column:1/-1;margin:0 0 10px}
+.profile-section-heading h3{margin:0;font-size:1rem}
+.profile-section-heading p,.roster-section-head p{margin:4px 0 0;font-size:.8rem;color:#526883;line-height:1.5}
+.inactive-summary .profile-data-date{margin:0 0 14px;font-weight:650;color:#526883;font-size:.85rem}
+.inactive-basis{margin-top:14px;border-top:1px solid #d8e4f3;padding-top:10px}
+.inactive-basis summary{cursor:pointer;font-size:.82rem;color:#334f73}
+.inactive-basis small{color:#526883;line-height:1.5;display:block}

@@ -20,9 +20,12 @@ export default function InactiveSummary({school,data,manifest}){
   const valid=Number.isFinite(total)&&total>0&&count<=total;
   return <section className="inactive-summary">
     <h3>Murid belum login</h3>
-    <div className="inactive-summary-values"><strong>{formatNumber(count)} <small>murid</small></strong><strong>{valid?formatRate(count/total):'—'}</strong></div>
-    <p>{valid?formatNumber(count)+' / '+formatNumber(total)+' pengguna murid':failed?'Jumlah murid belum dapat dimuatkan.':latest?'Jumlah asas perlu disemak.':'Memuatkan jumlah murid…'}</p>
-    <small>Ringkasan diimport pada 24 November 2026. {latest&&<>Jumlah asas Set 1 · {latest.period.label}.</>}</small>
+    <p className="profile-data-date">Data sehingga 18 November 2026</p>
+    <div className="inactive-summary-values"><strong>{formatNumber(count)} <small>murid belum login</small></strong></div>
+    <details className="inactive-basis"><summary>Peratus dan jumlah asas</summary>
+      <p>{valid?<><b>{formatRate(count/total)}</b> · {formatNumber(count)} daripada {formatNumber(total)} pengguna murid</>:failed?'Jumlah murid belum dapat dimuatkan.':latest?'Jumlah asas perlu disemak.':'Memuatkan jumlah murid…'}</p>
+      {latest&&<small>Jumlah asas daripada Set 1 · {latest.period.label}. Peratus menggunakan jumlah asas ini.</small>}
+    </details>
     {Number.isFinite(total)&&count>total&&<p role="status">Bilangan belum login melebihi jumlah asas. Peratus memerlukan semakan.</p>}
   </section>;
 }
