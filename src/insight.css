@@ -129,3 +129,9 @@
 .dcs-counts b{color:#243e60;white-space:nowrap}
 .dcs-lookup{margin-top:16px}.dcs-lookup .lookup{margin-top:12px}
 @media(max-width:760px){.dcs-ranking-grid{grid-template-columns:minmax(0,1fr)}.dcs-progress-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dcs-progress-grid>:first-child{grid-column:1/-1}}
+.inactive-summary{padding:16px;border:1px solid #d8e4f3;border-radius:12px;background:#f5f8fd;margin-block:12px;grid-column:1/-1}
+.inactive-summary h3{margin:0 0 10px;font-size:1rem}
+.inactive-summary-values{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#2159b7;font-size:1.65rem}
+.inactive-summary-values small{font-size:.85rem;font-weight:500}
+.inactive-summary p{margin:8px 0;color:#334f73}
+.inactive-summary>small{display:block;color:#526883;line-height:1.5}
